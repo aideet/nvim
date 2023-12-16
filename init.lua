@@ -1,3 +1,13 @@
+-- nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+
+require('opts')
+require('functions')
+require('mappings')
+require('plugins')
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -13,11 +23,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-local map = vim.api.nvim_set_keymap
-
-map('i', 'jk', '<Esc>', {noremap = true})
-
-require('opts')
-require('plugins')
-require('mappings')
-
+vim.cmd.colorscheme "catppuccin"
