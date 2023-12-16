@@ -17,7 +17,7 @@ return {
             return require "plugin-configs.nvim-tree"
         end,
         config = function(_, opts)
-            require("nvim-tree").setup {opts}
+            require("nvim-tree").setup(opts)
         end,
     },
     {
