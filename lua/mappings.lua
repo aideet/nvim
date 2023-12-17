@@ -16,8 +16,8 @@ end)
 vim.keymap.set('n', 'K', show_documentation, { silent = true })
 
 -- Nvim Tree
-map('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true }) 
-map('n', '<leader>e', ':NvimTreeFocus<CR>', { noremap = true })
+map('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true, noremap = true }) 
+map('n', '<leader>e', ':NvimTreeFocus<CR>', { silent = true, noremap = true })
 
 -- window navigation
 map('n', '<C-h>', '<C-w>h', { noremap = true })
@@ -26,11 +26,11 @@ map('n', '<C-j>', '<C-w>j', { noremap = true })
 map('n', '<C-k>', '<C-w>k', { noremap = true })
 
 -- line numbers
-map('n', '<leader>n', ':set nu!<CR>', { noremap = true })
-map('n', '<leader>rn', ':set rnu!<CR>', { noremap = true })
+map('n', '<leader>n', ':set nu!<CR>', { silent = true, noremap = true })
+map('n', '<leader>rn', ':set rnu!<CR>', { silent = true, noremap = true })
 
 -- Float term
-map('n', '<A-i>', ':lua require("FTerm").toggle()<CR>', { noremap = true })
-map('t', '<A-i>', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { noremap = true }) -- see https://www.reddit.com/r/neovim/comments/cger8p/how_quickly_close_a_terminal_buffer/
+map('n', '<A-i>', ':lua require("FTerm").toggle()<CR>', { silent = true, noremap = true })
+map('t', '<A-i>', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { silent = true, noremap = true }) -- see https://www.reddit.com/r/neovim/comments/cger8p/how_quickly_close_a_terminal_buffer/
 
 
