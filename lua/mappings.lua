@@ -29,5 +29,8 @@ map('n', '<C-k>', '<C-w>k', { noremap = true })
 map('n', '<leader>n', ':set nu!<CR>', { noremap = true })
 map('n', '<leader>rn', ':set rnu!<CR>', { noremap = true })
 
+-- Float term
+map('n', '<A-i>', ':lua require("FTerm").toggle()<CR>', { noremap = true })
+map('t', '<A-i>', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { noremap = true }) -- see https://www.reddit.com/r/neovim/comments/cger8p/how_quickly_close_a_terminal_buffer/
 
 

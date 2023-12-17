@@ -1,11 +1,13 @@
 return {
     "nvim-tree/nvim-web-devicons",
+	"folke/which-key.nvim",
+    "tpope/vim-surround",
+    "numToStr/FTerm.nvim",
     { 
         "catppuccin/nvim", 
         name = "catppuccin", 
         priority = 1000 
     },
-	"folke/which-key.nvim",
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",
