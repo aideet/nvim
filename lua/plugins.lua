@@ -83,5 +83,29 @@ return {
             require("plugin-configs.startify")
         end,
     },
+    {
+        "williamboman/mason.nvim",
+        opts = function()
+            return require "plugin-configs.mason"
+        end,
+        config = function(_, opts)
+            require("mason").setup(opts)
+        end,
+    },
+    {
+        "neovim/nvim-lspconfig",
+    },
+  {
+        "simrat39/rust-tools.nvim",
+        dependencies = "neovim/nvim-lspconfig",
+        opts = function ()
+            return require "plugin-configs.lsp-rust"
+        end,
+        config = function (_, opts)
+            require('rust-tools').setup(opts)
+            require'rust-tools'.hover_actions.hover_actions()
+        end
+  },
+
 
 }
