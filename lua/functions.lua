@@ -1,7 +1,7 @@
 
 -- Neovide scaling
 vim.g.neovide_scale_factor = 1.0
-local change_scale_factor = function(delta)
+change_scale_factor = function(delta)
   vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * (1 + delta)
 end
 

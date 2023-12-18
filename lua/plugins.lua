@@ -75,5 +75,13 @@ return {
           require("gitsigns").setup(opts)
         end,
         
-    }
+    },
+    {
+        'mhinz/vim-startify',
+        lazy = false,
+        config = function(_, opts)
+            require("plugin-configs.startify")
+        end,
+    },
+
 }
