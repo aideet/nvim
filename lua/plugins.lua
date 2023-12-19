@@ -107,6 +107,23 @@ return {
         end
     },
     {
+        "ray-x/go.nvim",
+        dependencies = {  -- optional packages
+            "ray-x/guihua.lua",
+            "neovim/nvim-lspconfig",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        event = {"CmdlineEnter"},
+        ft = {"go", 'gomod'},
+        build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+        opts = function ()
+            return require "plugin-configs.lsp-go"
+        end,
+        config = function(_, opts)
+            require("go").setup(opts)
+        end,
+    },
+    {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
         dependencies = {
@@ -163,25 +180,25 @@ return {
         lazy = false,
     },
 
-  {
-    "nvim-telescope/telescope.nvim",
-    branch = '0.1.x',
-    dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-lua/plenary.nvim",
-        },
-    opts = function()
-      return require "plugin-configs.telescope"
-    end,
-    config = function(_, opts)
-      local telescope = require "telescope"
-      telescope.setup(opts)
+    {
+        "nvim-telescope/telescope.nvim",
+        branch = '0.1.x',
+        dependencies = {
+                "nvim-treesitter/nvim-treesitter",
+                "nvim-lua/plenary.nvim",
+            },
+        opts = function()
+            return require "plugin-configs.telescope"
+        end,
+        config = function(_, opts)
+            local telescope = require "telescope"
+            telescope.setup(opts)
 
-      -- load extensions
-      for _, ext in ipairs(opts.extensions_list) do
-        telescope.load_extension(ext)
-      end
-    end,
-  },
+            -- load extensions
+            for _, ext in ipairs(opts.extensions_list) do
+                telescope.load_extension(ext)
+            end
+        end,
+    },
 
 }

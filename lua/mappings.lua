@@ -96,3 +96,21 @@ map('n', '<leader>fs', ':Telescope git_status<CR>', { silent = true, noremap = t
 map('n', '<leader>fp', ':Telescope terms<CR>', { silent = true, noremap = true})
 
 map('n', '<leader>fm', ':Telescope marks<CR>', { silent = true, noremap = true})
+
+map('n', '<leader>td', ':Telescope lsp_definitions<CR>', { silent = true, noremap = true})
+map('n', '<leader>ts', ':Telescope lsp_document_symbols<CR>', { silent = true, noremap = true})
+-- map('n', '<leader>tm', ':Telescope lsp_document_symbols ignore_symbols=variable<CR>', { silent = true, noremap = true})
+map('n', '<leader>tw', ':Telescope lsp_workspace_symbols<CR>', { silent = true, noremap = true})
+map('n', '<leader>tW', ':Telescope lsp_dynamic_workspace_symbols<CR>', { silent = true, noremap = true})
+map('n', '<leader>tm', ':Telescope lsp_implementations<CR>', { silent = true, noremap = true})
+map('n', '<leader>ti', ':Telescope lsp_incoming_calls<CR>', { silent = true, noremap = true})
+map('n', '<leader>to', ':Telescope lsp_outgoing_calls<CR>', { silent = true, noremap = true})
+map('n', '<leader>tr', ':Telescope lsp_references<CR>', { silent = true, noremap = true})
+map('n', '<leader>tt', ':Telescope lsp_type_definitions<CR>', { silent = true, noremap = true})
+
+
+
+
+
+
+
