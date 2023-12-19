@@ -161,5 +161,27 @@ return {
             -- add any options here
         },
         lazy = false,
-    }
+    },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    branch = '0.1.x',
+    dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-lua/plenary.nvim",
+        },
+    opts = function()
+      return require "plugin-configs.telescope"
+    end,
+    config = function(_, opts)
+      local telescope = require "telescope"
+      telescope.setup(opts)
+
+      -- load extensions
+      for _, ext in ipairs(opts.extensions_list) do
+        telescope.load_extension(ext)
+      end
+    end,
+  },
+
 }

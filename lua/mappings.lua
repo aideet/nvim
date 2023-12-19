@@ -81,3 +81,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
 map('n', '<leader>/', 'gcc', {})
 map('v', '<leader>/', 'gcc', {})
 
+-- Telescope
+map('n', '<leader>ff', ':Telescope find_files<CR>', { silent = true, noremap = true})
+map('n', '<leader>fa', ':Telescope find_files follow=true no_ignore=true hidden=true<CR>', { silent = true, noremap = true})
+map('n', '<leader>fw', ':Telescope live_grep<CR>', { silent = true, noremap = true})
+map('n', '<leader>fb', ':Telescope buffers<CR>', { silent = true, noremap = true})
+map('n', '<leader>fh', ':Telescope help_tags<CR>', { silent = true, noremap = true})
+map('n', '<leader>fo', ':Telescope oldfiles<CR>', { silent = true, noremap = true})
+map('n', '<leader>fz', ':Telescope current_buffer_fuzzy_find<CR>', { silent = true, noremap = true})
+
+map('n', '<leader>fg', ':Telescope git_commits<CR>', { silent = true, noremap = true})
+map('n', '<leader>fs', ':Telescope git_status<CR>', { silent = true, noremap = true})
+
+map('n', '<leader>fp', ':Telescope terms<CR>', { silent = true, noremap = true})
+
+map('n', '<leader>fm', ':Telescope marks<CR>', { silent = true, noremap = true})
