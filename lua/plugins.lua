@@ -95,7 +95,7 @@ return {
     {
         "neovim/nvim-lspconfig",
     },
-  {
+    {
         "simrat39/rust-tools.nvim",
         dependencies = "neovim/nvim-lspconfig",
         opts = function ()
@@ -105,7 +105,69 @@ return {
             require('rust-tools').setup(opts)
             require'rust-tools'.hover_actions.hover_actions()
         end
+    },
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      {
+        -- snippet plugin
+        "L3MON4D3/LuaSnip",
+        dependencies = "rafamadriz/friendly-snippets",
+        opts = function ()
+            return require("plugin-configs.luasnip").opts
+        end,
+        config = function(_, opts)
+            require("luasnip").setup(opts)
+            require("plugin-configs.luasnip").load_formats()
+        end,
+      },
+
+      -- autopairing of (){}[] etc
+      {
+        "windwp/nvim-autopairs",
+        opts = {
+          fast_wrap = {},
+          disable_filetype = { "TelescopePrompt", "vim" },
+        },
+        config = function(_, opts)
+          require("nvim-autopairs").setup(opts)
+
+          -- setup cmp for autopairs
+          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+          require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+        end,
+      },
+
+      -- cmp sources plugins
+      {
+        "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+      },
+    },
+    opts = function()
+      return require "plugin-configs.cmp"
+    end,
+    config = function(_, opts)
+      require("cmp").setup(opts)
+    end,
   },
+
+--    {
+--        "L3MON4D3/LuaSnip",
+--        -- follow latest release.
+--        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+--        -- install jsregexp (optional!).
+--        build = "make install_jsregexp",
+--        event = "InsertEnter",
+--        dependencies = { "rafamadriz/friendly-snippets" },
+--        init = function(_)
+--            require("luasnip.loaders.from_vscode").lazy_load()
+--        end
+--    }
 
 
 }

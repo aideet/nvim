@@ -5,8 +5,8 @@ vim.g.loaded_netrwPlugin = 1
 
 require('opts')
 require('functions')
-require('mappings')
 require('plugins')
+require('mappings')
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -23,7 +23,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- enable borders for floating windows
 -- see https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows
-local _border = "single"
+local _border = "rounded"
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover, {
     border = _border
