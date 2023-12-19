@@ -6,17 +6,17 @@ map('i', 'jk', '<Esc>', { noremap = true })
 
 
 -- neovide scaling
-vim.keymap.set("n", "<C-+>", function()
+set("n", "<C-+>", function()
   change_scale_factor(0.20)
 end)
-vim.keymap.set("n", "<C-->", function()
+set("n", "<C-->", function()
   change_scale_factor(-0.20)
 end)
-vim.keymap.set("n", "<C-0>", function()
+set("n", "<C-0>", function()
   vim.g.neovide_scale_factor = 1.0
 end)
 
-vim.keymap.set('n', 'K', show_documentation, { silent = true })
+set('n', 'K', show_documentation, { silent = true })
 
 -- Nvim Tree
 map('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true, noremap = true }) 
@@ -113,6 +113,24 @@ map('n', '<leader>mdp', ':MarkdownPreview<CR>', { silent = true, noremap = true}
 map('n', '<leader>mds', ':MarkdownPreviewStop<CR>', { silent = true, noremap = true})
 map('n', '<leader>mdt', ':MarkdownPreviewToggle<CR>', { silent = true, noremap = true})
 
-
+-- dap
+map('n', '<leader>db', ':DapToggleBreakpoint<CR>', { silent = true, noremap = true})
+map('n', '<f5>', ':DapContinue<CR>', { silent = true, noremap = true})
+map('n', '<f6>', ':DapTerminate<CR>', { silent = true, noremap = true})
+map('n', '<f7>', ':DapStepInto<CR>', { silent = true, noremap = true})
+map('n', '<f8>', ':DapStepOut<CR>', { silent = true, noremap = true})
+map('n', '<f9>', ':DapStepOver<CR>', { silent = true, noremap = true})
+map('n', '<f10>', ':DapPlayPause<CR>', { silent = true, noremap = true})
+map('n', '<leader>dr', ':DapToggleRepl<CR>', { silent = true, noremap = true})
+map('n', '<leader>df', ':DapUiFloat<CR>', { silent = true, noremap = true})
+map('n', '<leader>du', ':DapUiToggle<CR>', { silent = true, noremap = true})
+map('n', '<leader>du', ':DapUiToggle<CR>', { silent = true, noremap = true})
+set('n', '<leader>ds', function ()
+            local widgets = require('dap.ui.widgets');
+            local sidebar = widgets.sidebar(widgets.scopes);
+            sidebar.open();
+        end,
+        { silent = true, noremap = true}
+    )
 
 
