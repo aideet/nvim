@@ -1,8 +1,20 @@
 return {
     "nvim-tree/nvim-web-devicons",
-	"folke/which-key.nvim",
     "tpope/vim-surround",
     "numToStr/FTerm.nvim",
+    {
+        "folke/which-key.nvim",
+        -- event = "VeryLazy",
+        lazy = false,
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {},
+        config = function(_, opts)
+            require("which-key").setup(opts)
+        end,
+    },
     { 
         "catppuccin/nvim", 
         name = "catppuccin", 

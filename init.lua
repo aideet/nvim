@@ -6,7 +6,6 @@ vim.g.loaded_netrwPlugin = 1
 require('opts')
 require('functions')
 require('plugins')
-require('mappings')
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -48,5 +47,6 @@ vim.fn.sign_define("DiagnosticSignHint",
     {text = "", texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint"})
 
 require("lazy").setup("plugins")
+require('mappings')
 
 vim.cmd.colorscheme "catppuccin"

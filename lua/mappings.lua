@@ -1,6 +1,15 @@
 local map = vim.api.nvim_set_keymap
 local set = vim.keymap.set
 
+local wk = require("which-key")
+-- wk.register({
+--    ["<leader>"] = {
+--        name = "Nvim Tree",
+--        e = { ":NvimTreeFocus<CR>", "Focus Nvim Tree" },
+--
+--    }
+-- })
+
 map('i', 'jk', '<Esc>', { noremap = true })
 --map('n', '<A>v', '<C-V>', { noremap = true })
 
@@ -19,7 +28,6 @@ end)
 set('n', 'K', show_documentation, { silent = true })
 
 -- Nvim Tree
-map('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true, noremap = true }) 
 map('n', '<leader>e', ':NvimTreeFocus<CR>', { silent = true, noremap = true })
 
 -- window navigation
@@ -78,8 +86,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- Comment
-map('n', '<leader>/', 'gcc', {})
-map('v', '<leader>/', 'gcc', {})
+set('n', '<leader>/', function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      {}
+)
+set('v', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", {})
+
 
 -- Telescope
 map('n', '<leader>ff', ':Telescope find_files<CR>', { silent = true, noremap = true})
