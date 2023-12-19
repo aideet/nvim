@@ -108,8 +108,10 @@ map('n', '<leader>to', ':Telescope lsp_outgoing_calls<CR>', { silent = true, nor
 map('n', '<leader>tr', ':Telescope lsp_references<CR>', { silent = true, noremap = true})
 map('n', '<leader>tt', ':Telescope lsp_type_definitions<CR>', { silent = true, noremap = true})
 
-
-
+-- Markdown preview
+map('n', '<leader>mdp', ':MarkdownPreview<CR>', { silent = true, noremap = true})
+map('n', '<leader>mds', ':MarkdownPreviewStop<CR>', { silent = true, noremap = true})
+map('n', '<leader>mdt', ':MarkdownPreviewToggle<CR>', { silent = true, noremap = true})
 
 
 

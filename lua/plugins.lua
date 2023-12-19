@@ -51,6 +51,14 @@ return {
         end,
     },
     {
+        "tpope/vim-fugitive",
+        lazy = false,
+    },
+    { "junegunn/gv.vim",
+        dependencies = { "tpope/vim-fugitive" },
+        lazy = false,
+    },
+    {
         "lewis6991/gitsigns.nvim",
         ft = { "gitcommit", "diff" },
         init = function()
@@ -200,5 +208,9 @@ return {
             end
         end,
     },
-
+    {
+        "iamcco/markdown-preview.nvim",
+        event = "BufEnter *.md",
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
 }
