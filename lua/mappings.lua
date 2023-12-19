@@ -77,5 +77,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
--- LuaSnip
+-- Comment
+map('n', '<leader>/', 'gcc', {})
+map('v', '<leader>/', 'gcc', {})
 
