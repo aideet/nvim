@@ -18,7 +18,7 @@ return {
     { 
         "catppuccin/nvim", 
         name = "catppuccin", 
-        priority = 1000 
+        priority = 1000,
     },
     {
         "nvim-tree/nvim-tree.lua",
@@ -244,6 +244,8 @@ return {
         },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
+    { 'tpope/vim-dadbod', lazy = true },
+    { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
     {
         "kristijanhusak/vim-dadbod-ui",
         dependencies = {
@@ -260,5 +262,20 @@ return {
             -- Your DBUI configuration
             vim.g.db_ui_use_nerd_fonts = 1
         end,
+    },
+    {
+        'romgrk/barbar.nvim',
+        dependencies = {
+            'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+            'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+        },
+        init = function() vim.g.barbar_auto_setup = false end,
+        opts = {
+          -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+          -- animation = true,
+          -- insert_at_start = true,
+          -- …etc.
+        },
+        version = '^1.0.0', -- optional: only update when a new 1.x version is released
     },
 }

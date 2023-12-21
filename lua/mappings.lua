@@ -1,6 +1,8 @@
 local map = vim.api.nvim_set_keymap
 local set = vim.keymap.set
 
+local std_opts = { noremap = true, silent = true }
+
 local wk = require("which-key")
 -- wk.register({
 --    ["<leader>"] = {
@@ -70,6 +72,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         set('n', 'K', vim.lsp.buf.hover, lsp_opts)
         set('n', 'gi', vim.lsp.buf.implementation, lsp_opts)
         set('n', '<C-k>', vim.lsp.buf.signature_help, lsp_opts)
+        set('n', '<leader>i', peek_definition, lsp_opts)
         set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, lsp_opts)
         set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, lsp_opts)
         set('n', '<leader>wl', function()
@@ -146,4 +149,21 @@ set('n', '<leader>ds', function ()
         { silent = true, noremap = true}
     )
 
-
+-- barbar (tabs)
+map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', std_opts)
+map('n', '<A-.>', '<Cmd>BufferNext<CR>', std_opts)
+map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', std_opts)
+map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', std_opts)
+map('n', '<A-p>', '<Cmd>BufferPin<CR>', std_opts)
+map('n', '<A-c>', '<Cmd>BufferClose<CR>', std_opts)
+map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', std_opts)
+-- Wipeout buffer
+--                 :BufferWipeout
+-- Close commands
+--                 :BufferCloseAllButCurrent
+--                 :BufferCloseAllButPinned
+--                 :BufferCloseAllButCurrentOrPinned
+--                 :BufferCloseBuffersLeft
+--                 :BufferCloseBuffersRight
+-- Magic buffer-picking mode
+map('n', '<C-p>', '<Cmd>BufferPick<CR>', std_opts)
