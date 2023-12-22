@@ -41,7 +41,7 @@ function peek_definition()
   return vim.lsp.buf_request(0, 'textDocument/definition', params, preview_location_callback)
 end
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "catppuccin-macchiato"
 
 require('mappings')
 require('styles')
