@@ -21,32 +21,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- enable borders for floating windows
--- see https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows
-local _border = "rounded"
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = _border
-  }
-)
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help, {
-    border = _border
-  }
-)
-vim.diagnostic.config{
-  float={border=_border}
-}
-
-vim.fn.sign_define("DiagnosticSignError",
-    {text = "", texthl = "DiagnosticSignError", numhl = "DiagnosticSignError"})
-vim.fn.sign_define("DiagnosticSignWarn",
-    {text = "", texthl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn"})
-vim.fn.sign_define("DiagnosticSignInfo",
-    {text = "", texthl = "DiagnosticSignInfo", numhl = "DiagnosticSignInfo"})
-vim.fn.sign_define("DiagnosticSignHint",
-    {text = "", texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint"})
-
 require("lazy").setup("plugins")
 
 -- LSP preview defintion (see https://github.com/neovim/neovim/pull/12368)
@@ -67,7 +41,8 @@ function peek_definition()
   return vim.lsp.buf_request(0, 'textDocument/definition', params, preview_location_callback)
 end
 
+vim.cmd.colorscheme "catppuccin"
 
 require('mappings')
+require('styles')
 
-vim.cmd.colorscheme "catppuccin"
