@@ -3,6 +3,13 @@ return {
     "tpope/vim-surround",
     "numToStr/FTerm.nvim",
     {
+        "norcalli/nvim-colorizer.lua",
+        lazy = false,
+        config = function()
+            require("colorizer").setup()
+        end,
+    },
+    {
         "folke/which-key.nvim",
         -- event = "VeryLazy",
         lazy = false,

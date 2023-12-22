@@ -38,6 +38,12 @@ map('n', '<C-l>', '<C-w>l', { noremap = true })
 map('n', '<C-j>', '<C-w>j', { noremap = true })
 map('n', '<C-k>', '<C-w>k', { noremap = true })
 
+-- navigation in insert mode
+map('i', '<C-h>', '<Left>', { noremap = true })
+map('i', '<C-l>', '<Right>', { noremap = true })
+map('i', '<C-j>', '<Down>', { noremap = true })
+map('i', '<C-k>', '<Up>', { noremap = true })
+
 -- line numbers
 map('n', '<leader>n', ':set nu!<CR>', { silent = true, noremap = true })
 map('n', '<leader>rn', ':set rnu!<CR>', { silent = true, noremap = true })
@@ -105,14 +111,17 @@ map('n', '<leader>fb', ':Telescope buffers<CR>', { silent = true, noremap = true
 map('n', '<leader>fh', ':Telescope help_tags<CR>', { silent = true, noremap = true})
 map('n', '<leader>fo', ':Telescope oldfiles<CR>', { silent = true, noremap = true})
 map('n', '<leader>fz', ':Telescope current_buffer_fuzzy_find<CR>', { silent = true, noremap = true})
-
-map('n', '<leader>fg', ':Telescope git_commits<CR>', { silent = true, noremap = true})
-map('n', '<leader>fs', ':Telescope git_status<CR>', { silent = true, noremap = true})
-
+map('n', '<leader>fl', ':Telescope spell_suggest<CR>', { silent = true, noremap = true})
 map('n', '<leader>fp', ':Telescope terms<CR>', { silent = true, noremap = true})
-
 map('n', '<leader>fm', ':Telescope marks<CR>', { silent = true, noremap = true})
+map('n', '<leader>fs', ':Telescope search_history<CR>', { silent = true, noremap = true})
 
+
+map('n', '<leader>gc', ':Telescope git_commits<CR>', { silent = true, noremap = true})
+map('n', '<leader>gs', ':Telescope git_status<CR>', { silent = true, noremap = true})
+map('n', '<leader>gb', ':Telescope git_branches<CR>', { silent = true, noremap = true})
+
+map('n', '<leader>tp', ':Telescope diagnostics<CR>', { silent = true, noremap = true})
 map('n', '<leader>td', ':Telescope lsp_definitions<CR>', { silent = true, noremap = true})
 map('n', '<leader>ts', ':Telescope lsp_document_symbols<CR>', { silent = true, noremap = true})
 -- map('n', '<leader>tm', ':Telescope lsp_document_symbols ignore_symbols=variable<CR>', { silent = true, noremap = true})

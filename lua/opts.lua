@@ -3,7 +3,6 @@ local g = vim.g
 
 g.mapleader = " "
 
-
 -- [[ Whitespace ]]
 opt.expandtab = true             -- bool: Use spaces instead of tabs
 opt.shiftwidth = 4               -- num:  Size of an indent
