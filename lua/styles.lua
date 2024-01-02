@@ -31,4 +31,7 @@ vim.fn.sign_define("DiagnosticSignHint",
 
 vim.cmd('highlight Search guibg=DarkYellow guifg=Black')
 vim.cmd('highlight CurSearch guibg=Yellow guifg=Blue gui=bold')
+
+vim.cmd('highlight Visual gui=none cterm=none guibg=#494d65')
+
 -- vim.api.nvim_set_hl(0, 'Search', { bg=DarkYellow, fg=Black, ctermbg=DarkYellow, ctermfg=Black })
