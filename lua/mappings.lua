@@ -101,7 +101,7 @@ map('n', '<leader>fh', ':Telescope help_tags<CR>', { silent = true, noremap = tr
 map('n', '<leader>fo', ':Telescope oldfiles<CR>', { silent = true, noremap = true})
 map('n', '<leader>fz', ':Telescope current_buffer_fuzzy_find<CR>', { silent = true, noremap = true})
 map('n', '<leader>fl', ':Telescope spell_suggest<CR>', { silent = true, noremap = true})
-map('n', '<leader>fp', ':Telescope terms<CR>', { silent = true, noremap = true})
+-- map('n', '<leader>fp', ':Telescope terms<CR>', { silent = true, noremap = true})
 map('n', '<leader>fm', ':Telescope marks<CR>', { silent = true, noremap = true})
 map('n', '<leader>fs', ':Telescope search_history<CR>', { silent = true, noremap = true})
 
@@ -113,7 +113,7 @@ map('n', '<leader>gb', ':Telescope git_branches<CR>', { silent = true, noremap =
 map('n', '<leader>tp', ':Telescope diagnostics<CR>', { silent = true, noremap = true})
 map('n', '<leader>td', ':Telescope lsp_definitions<CR>', { silent = true, noremap = true})
 map('n', '<leader>ts', ':Telescope lsp_document_symbols<CR>', { silent = true, noremap = true})
--- map('n', '<leader>tm', ':Telescope lsp_document_symbols ignore_symbols=variable<CR>', { silent = true, noremap = true})
+map('n', '<leader>tS', ':Telescope lsp_document_symbols ignore_symbols=variable<CR>', { silent = true, noremap = true})
 map('n', '<leader>tw', ':Telescope lsp_workspace_symbols<CR>', { silent = true, noremap = true})
 map('n', '<leader>tW', ':Telescope lsp_dynamic_workspace_symbols<CR>', { silent = true, noremap = true})
 map('n', '<leader>tm', ':Telescope lsp_implementations<CR>', { silent = true, noremap = true})
@@ -137,7 +137,6 @@ map('n', '<f9>', ':DapStepOver<CR>', { silent = true, noremap = true})
 map('n', '<f10>', ':DapPlayPause<CR>', { silent = true, noremap = true})
 map('n', '<leader>dr', ':DapToggleRepl<CR>', { silent = true, noremap = true})
 map('n', '<leader>df', ':DapUiFloat<CR>', { silent = true, noremap = true})
-map('n', '<leader>du', ':DapUiToggle<CR>', { silent = true, noremap = true})
 map('n', '<leader>du', ':DapUiToggle<CR>', { silent = true, noremap = true})
 set('n', '<leader>ds', function ()
             local widgets = require('dap.ui.widgets');
@@ -168,14 +167,14 @@ map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', std_opts)
 -- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', std_opts)
 
--- neovide scaling
-set("n", "<C-+>", function()
-  change_scale_factor(0.20)
-end)
-set("n", "<C-->", function()
-  change_scale_factor(-0.20)
-end)
-set("n", "<C-0>", function()
-  vim.g.neovide_scale_factor = 1.0
-end)
+-- -- neovide scaling
+-- set("n", "<C-+>", function()
+--   change_scale_factor(0.20)
+-- end)
+-- set("n", "<C-->", function()
+--   change_scale_factor(-0.20)
+-- end)
+-- set("n", "<C-0>", function()
+--   vim.g.neovide_scale_factor = 1.0
+-- end)
 
