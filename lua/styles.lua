@@ -29,3 +29,4 @@ vim.fn.sign_define("DiagnosticSignInfo",
 vim.fn.sign_define("DiagnosticSignHint",
     {text = "", texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint"})
 
+-- vim.api.nvim_set_hl(0, "Search", { guibg=Yellow, guifg=Black, ctermbg=Yellow, ctermfg=Black })

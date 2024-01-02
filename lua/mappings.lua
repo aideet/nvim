@@ -16,17 +16,6 @@ map('i', 'jk', '<Esc>', { noremap = true })
 --map('n', '<A>v', '<C-V>', { noremap = true })
 
 
--- neovide scaling
-set("n", "<C-+>", function()
-  change_scale_factor(0.20)
-end)
-set("n", "<C-->", function()
-  change_scale_factor(-0.20)
-end)
-set("n", "<C-0>", function()
-  vim.g.neovide_scale_factor = 1.0
-end)
-
 set('n', 'K', show_documentation, { silent = true })
 
 -- Nvim Tree
@@ -178,3 +167,15 @@ map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', std_opts)
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', std_opts)
+
+-- neovide scaling
+set("n", "<C-+>", function()
+  change_scale_factor(0.20)
+end)
+set("n", "<C-->", function()
+  change_scale_factor(-0.20)
+end)
+set("n", "<C-0>", function()
+  vim.g.neovide_scale_factor = 1.0
+end)
+

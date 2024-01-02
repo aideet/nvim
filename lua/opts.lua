@@ -39,7 +39,7 @@ opt.termguicolors = true         -- bool: If term supports ui color then enable
 opt.ignorecase = true            -- bool: Ignore case in search patterns
 opt.smartcase = true             -- bool: Override ignorecase if search contains capitals
 opt.incsearch = true             -- bool: Use incremental search
-opt.hlsearch = false             -- bool: Highlight search matches
+opt.hlsearch = true             -- bool: Highlight search matches
 
 -- [[ Splits ]]
 opt.splitright = true            -- bool: Place new window to right of current one
