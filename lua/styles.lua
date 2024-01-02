@@ -29,4 +29,6 @@ vim.fn.sign_define("DiagnosticSignInfo",
 vim.fn.sign_define("DiagnosticSignHint",
     {text = "", texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint"})
 
--- vim.api.nvim_set_hl(0, "Search", { guibg=Yellow, guifg=Black, ctermbg=Yellow, ctermfg=Black })
+vim.cmd('highlight Search guibg=DarkYellow guifg=Black')
+
+-- vim.api.nvim_set_hl(0, 'Search', { bg=DarkYellow, fg=Black, ctermbg=DarkYellow, ctermfg=Black })
