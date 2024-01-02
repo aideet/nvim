@@ -14,7 +14,7 @@ local wk = require("which-key")
 
 map('i', 'jk', '<Esc>', { noremap = true })
 --map('n', '<A>v', '<C-V>', { noremap = true })
-
+map('n', '<leader>H', '<Cmd>noh<CR>', std_opts)
 
 set('n', 'K', show_documentation, { silent = true })
 
