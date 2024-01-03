@@ -153,7 +153,7 @@ map('n', '<A-.>', '<Cmd>BufferNext<CR>', std_opts)
 map('n', '<Tab>', '<Cmd>BufferNext<CR>', std_opts)
 map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', std_opts)
 map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', std_opts)
-map('n', '<A-p>', '<Cmd>BufferPin<CR>', std_opts)
+-- map('n', '<A-p>', '<Cmd>BufferPin<CR>', std_opts)
 map('n', '<A-c>', '<Cmd>BufferClose<CR>', std_opts)
 map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', std_opts)
 -- Wipeout buffer
@@ -165,7 +165,7 @@ map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', std_opts)
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
-map('n', '<C-p>', '<Cmd>BufferPick<CR>', std_opts)
+map('n', '<A-p>', '<Cmd>BufferPick<CR>', std_opts)
 
 -- -- neovide scaling
 -- set("n", "<C-+>", function()
