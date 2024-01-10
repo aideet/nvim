@@ -1,8 +1,6 @@
 local map = vim.api.nvim_set_keymap
 local set = vim.keymap.set
 
-local std_opts = { noremap = true, silent = true }
-
 local wk = require("which-key")
 -- wk.register({
 --    ["<leader>"] = {
@@ -12,9 +10,11 @@ local wk = require("which-key")
 --    }
 -- })
 
+map('n', 'gx', "<Cmd>silent execute '!xdg-open '.shellescape(expand('<cfile>'), 1)<CR>", { silent = true, noremap = true })
+
 map('i', 'jk', '<Esc>', { noremap = true })
 --map('n', '<A>v', '<C-V>', { noremap = true })
-map('n', '<leader>H', '<Cmd>noh<CR>', std_opts)
+map('n', '<leader>H', '<Cmd>noh<CR>', { silent = true, noremap = true })
 
 set('n', 'K', show_documentation, { silent = true })
 
@@ -147,15 +147,15 @@ set('n', '<leader>ds', function ()
     )
 
 -- barbar (tabs)
-map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', std_opts)
-map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', std_opts)
-map('n', '<A-.>', '<Cmd>BufferNext<CR>', std_opts)
-map('n', '<Tab>', '<Cmd>BufferNext<CR>', std_opts)
-map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', std_opts)
-map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', std_opts)
--- map('n', '<A-p>', '<Cmd>BufferPin<CR>', std_opts)
-map('n', '<A-c>', '<Cmd>BufferClose<CR>', std_opts)
-map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', std_opts)
+map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true })
+map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true })
+map('n', '<A-.>', '<Cmd>BufferNext<CR>', { silent = true, noremap = true })
+map('n', '<Tab>', '<Cmd>BufferNext<CR>', { silent = true, noremap = true })
+map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', { silent = true, noremap = true })
+map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', { silent = true, noremap = true })
+-- map('n', '<A-p>', '<Cmd>BufferPin<CR>', { silent = true, noremap = true })
+map('n', '<A-c>', '<Cmd>BufferClose<CR>', { silent = true, noremap = true })
+map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', { silent = true, noremap = true })
 -- Wipeout buffer
 --                 :BufferWipeout
 -- Close commands
@@ -165,7 +165,7 @@ map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', std_opts)
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
-map('n', '<A-p>', '<Cmd>BufferPick<CR>', std_opts)
+map('n', '<A-p>', '<Cmd>BufferPick<CR>', { silent = true, noremap = true })
 
 -- -- neovide scaling
 -- set("n", "<C-+>", function()
