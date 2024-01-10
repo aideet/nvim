@@ -10,6 +10,7 @@ opt.softtabstop = 4              -- num:  Number of spaces tabs count for in ins
 opt.tabstop = 4
 opt.smartindent = true
 
+-- spell check
 opt.spelllang = 'en_us'
 opt.spell = true
 
