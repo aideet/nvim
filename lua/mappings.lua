@@ -44,6 +44,9 @@ map('t', '<A-i>', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { silent = tr
 -- startify
 map('n', '<leader>d', ':Startify<CR>', { silent = true, noremap = true }) 
 
+-- GitSigns
+map('n', '<leader>ga', '<Cmd>Gitsigns toggle_current_line_blame<CR>', { silent = true, noremap = true })
+
 -- LSP
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
