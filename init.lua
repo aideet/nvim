@@ -42,6 +42,7 @@ function peek_definition()
 end
 
 vim.cmd.colorscheme "catppuccin-macchiato"
+-- vim.cmd.colorscheme "catppuccin-latte"
 
 require('mappings')
 require('styles')
