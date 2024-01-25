@@ -67,11 +67,19 @@ local options = {
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.close(),
-    -- ["<CR>"] = cmp.mapping.confirm {
+
+    -- using suggestion only if selected
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+
+    -- uses the first suggestion regardless if it is selected or not
+    -- ["<C-CR>"] = cmp.mapping.confirm {
     --   behavior = cmp.ConfirmBehavior.Insert,
     --   select = true,
     -- },
-    ["<CR>"] = cmp.config.disable,
+
+    -- disables CR at all, ie. it does not use selected items
+    -- ["<CR>"] = cmp.config.disable,
+        
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
