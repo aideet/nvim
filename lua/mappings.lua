@@ -86,6 +86,33 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+-- crates
+local crates = require("crates")
+local crates_opts = { silent = true }
+
+set("n", "<leader>ct", crates.toggle, crates_opts)
+
+set("n", "<leader>cr", crates.reload, crates_opts)
+
+set("n", "<leader>cv", crates.show_versions_popup, crates_opts)
+set("n", "<leader>cf", crates.show_features_popup, crates_opts)
+set("n", "<leader>cd", crates.show_dependencies_popup, crates_opts)
+
+set("n", "<leader>cu", crates.update_crate, crates_opts)
+set("v", "<leader>cu", crates.update_crates, crates_opts)
+set("n", "<leader>ca", crates.update_all_crates, crates_opts)
+set("n", "<leader>cU", crates.upgrade_crate, crates_opts)
+set("v", "<leader>cU", crates.upgrade_crates, crates_opts)
+set("n", "<leader>cA", crates.upgrade_all_crates, crates_opts)
+
+set("n", "<leader>cx", crates.expand_plain_crate_to_inline_table, crates_opts)
+set("n", "<leader>cX", crates.extract_crate_into_table, crates_opts)
+
+set("n", "<leader>cH", crates.open_homepage, crates_opts)
+set("n", "<leader>cR", crates.open_repository, crates_opts)
+set("n", "<leader>cD", crates.open_documentation, crates_opts)
+set("n", "<leader>cC", crates.open_crates_io, crates_opts)
+
 -- Comment
 set('n', '<leader>/', function()
         require("Comment.api").toggle.linewise.current()
