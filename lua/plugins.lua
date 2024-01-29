@@ -134,6 +134,13 @@ return {
         end
     },
     {
+        'saecki/crates.nvim',
+        tag = 'stable',
+        config = function()
+            require('crates').setup()
+        end,
+    },
+    {
         "ray-x/go.nvim",
         dependencies = {  -- optional packages
             "ray-x/guihua.lua",
