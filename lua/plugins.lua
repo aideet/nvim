@@ -253,12 +253,7 @@ return {
     },
     {
         "iamcco/markdown-preview.nvim",
-        lazy=false,
-        -- cmd = {
-        --     'MarkdownPreview',
-        --     'MarkdownPreviewStop',
-        --     'MarkdownPreviewToggle',
-        -- },
+        ft = {"markdown"},
         build = function() vim.fn["mkdp#util#install"]() end,
     },
     { 'tpope/vim-dadbod', lazy = true },
