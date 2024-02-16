@@ -73,6 +73,13 @@ return {
         "tpope/vim-fugitive",
         lazy = false,
     },
+    {
+        "mfussenegger/nvim-lint",
+        lazy = false,
+        config = function()
+            require "plugin-configs.nvim-lint"
+        end,
+    },
     { "junegunn/gv.vim",
         dependencies = { "tpope/vim-fugitive" },
         lazy = false,
