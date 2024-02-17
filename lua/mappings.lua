@@ -10,13 +10,14 @@ local wk = require("which-key")
 --    }
 -- })
 
+-- escape to NORMAL mode
+map('i', 'jk', '<Esc>', { noremap = true })
+
+-- Open with system app
 map('n', 'gx', "<Cmd>silent execute '!xdg-open '.shellescape(expand('<cfile>'), 1)<CR>", { silent = true, noremap = true })
 
-map('i', 'jk', '<Esc>', { noremap = true })
---map('n', '<A>v', '<C-V>', { noremap = true })
+-- un-highlight search occurrences
 map('n', '<leader>H', '<Cmd>noh<CR>', { silent = true, noremap = true })
-
-set('n', 'K', show_documentation, { silent = true })
 
 -- Nvim Tree
 map('n', '<leader>e', ':NvimTreeFocus<CR>', { silent = true, noremap = true })
@@ -46,6 +47,9 @@ map('n', '<leader>d', ':Startify<CR>', { silent = true, noremap = true })
 
 -- GitSigns
 map('n', '<leader>ga', '<Cmd>Gitsigns toggle_current_line_blame<CR>', { silent = true, noremap = true })
+
+-- LSP float documentation
+set('n', 'K', show_documentation, { silent = true })
 
 -- LSP
 -- Global mappings.
