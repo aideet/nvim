@@ -1,3 +1,5 @@
+-- vim: foldmethod=marker
+
 local map = vim.api.nvim_set_keymap
 local set = vim.keymap.set
 
@@ -10,48 +12,59 @@ local wk = require("which-key")
 --    }
 -- })
 
--- escape to NORMAL mode
+-- escape to NORMAL mode {{{ 
 map('i', 'jk', '<Esc>', { noremap = true })
+-- }}}
 
--- Open with system app
+-- Open with system app {{{
 map('n', 'gx', "<Cmd>silent execute '!xdg-open '.shellescape(expand('<cfile>'), 1)<CR>", { silent = true, noremap = true })
+-- }}}
 
--- un-highlight search occurrences
+-- un-highlight search occurrences {{{
 map('n', '<leader>H', '<Cmd>noh<CR>', { silent = true, noremap = true })
+-- }}}
 
--- Nvim Tree
+-- Nvim Tree {{{
 map('n', '<leader>e', ':NvimTreeFocus<CR>', { silent = true, noremap = true })
+-- }}}
 
--- window navigation
+-- window navigation {{{
 map('n', '<C-h>', '<C-w>h', { noremap = true })
 map('n', '<C-l>', '<C-w>l', { noremap = true })
 map('n', '<C-j>', '<C-w>j', { noremap = true })
 map('n', '<C-k>', '<C-w>k', { noremap = true })
+-- }}}
 
--- navigation in insert mode
+-- navigation in insert mode {{{
 map('i', '<C-h>', '<Left>', { noremap = true })
 map('i', '<C-l>', '<Right>', { noremap = true })
 map('i', '<C-j>', '<Down>', { noremap = true })
 map('i', '<C-k>', '<Up>', { noremap = true })
+-- }}}
 
--- line numbers
+-- line numbers {{{
 map('n', '<leader>n', ':set nu!<CR>', { silent = true, noremap = true })
 map('n', '<leader>rn', ':set rnu!<CR>', { silent = true, noremap = true })
+-- }}}
 
--- Float term
+-- Float term {{{
 map('n', '<A-i>', ':lua require("FTerm").toggle()<CR>', { silent = true, noremap = true })
 map('t', '<A-i>', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { silent = true, noremap = true }) -- see https://www.reddit.com/r/neovim/comments/cger8p/how_quickly_close_a_terminal_buffer/
+-- }}}
 
--- startify
+-- startify {{{
 map('n', '<leader>d', ':Startify<CR>', { silent = true, noremap = true }) 
+-- }}}
 
--- GitSigns
+-- GitSigns {{{
 map('n', '<leader>ga', '<Cmd>Gitsigns toggle_current_line_blame<CR>', { silent = true, noremap = true })
+-- }}}
 
--- LSP float documentation
+-- LSP float documentation {{{
 set('n', 'K', show_documentation, { silent = true })
+-- }}}
 
--- LSP
+-- LSP {{{
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 set('n', '<leader>f', vim.diagnostic.open_float)
@@ -89,8 +102,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, lsp_opts)
     end,
 })
+-- }}}
 
--- crates
+-- crates {{{
 local crates = require("crates")
 local crates_opts = { silent = true }
 
@@ -116,17 +130,18 @@ set("n", "<leader>cH", crates.open_homepage, crates_opts)
 set("n", "<leader>cR", crates.open_repository, crates_opts)
 set("n", "<leader>cD", crates.open_documentation, crates_opts)
 set("n", "<leader>cC", crates.open_crates_io, crates_opts)
+-- }}}
 
--- Comment
+-- Comment {{{
 set('n', '<leader>/', function()
         require("Comment.api").toggle.linewise.current()
       end,
       {}
 )
 set('v', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", {})
+-- }}}
 
-
--- Telescope
+-- Telescope {{{
 map('n', '<leader>ff', ':Telescope find_files<CR>', { silent = true, noremap = true})
 map('n', '<leader>fa', ':Telescope find_files follow=true no_ignore=true hidden=true<CR>', { silent = true, noremap = true})
 map('n', '<leader>fw', ':Telescope live_grep<CR>', { silent = true, noremap = true})
@@ -155,13 +170,15 @@ map('n', '<leader>ti', ':Telescope lsp_incoming_calls<CR>', { silent = true, nor
 map('n', '<leader>to', ':Telescope lsp_outgoing_calls<CR>', { silent = true, noremap = true})
 map('n', '<leader>tr', ':Telescope lsp_references<CR>', { silent = true, noremap = true})
 map('n', '<leader>tt', ':Telescope lsp_type_definitions<CR>', { silent = true, noremap = true})
+-- }}}
 
--- Markdown preview
+-- Markdown preview {{{
 map('n', '<leader>mdp', ':MarkdownPreview<CR>', { silent = true, noremap = true})
 map('n', '<leader>mds', ':MarkdownPreviewStop<CR>', { silent = true, noremap = true})
 map('n', '<leader>mdt', ':MarkdownPreviewToggle<CR>', { silent = true, noremap = true})
+-- }}}
 
--- dap
+-- dap {{{
 map('n', '<leader>db', ':DapToggleBreakpoint<CR>', { silent = true, noremap = true})
 map('n', '<f5>', ':DapContinue<CR>', { silent = true, noremap = true})
 map('n', '<f6>', ':DapTerminate<CR>', { silent = true, noremap = true})
@@ -179,8 +196,9 @@ set('n', '<leader>ds', function ()
         end,
         { silent = true, noremap = true}
     )
+-- }}}
 
--- barbar (tabs)
+-- barbar (tabs) {{{
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true })
 map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true })
 map('n', '<A-.>', '<Cmd>BufferNext<CR>', { silent = true, noremap = true })
@@ -200,6 +218,7 @@ map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', { silent = true, noremap 
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
 map('n', '<A-p>', '<Cmd>BufferPick<CR>', { silent = true, noremap = true })
+-- }}}
 
 -- -- neovide scaling
 -- set("n", "<C-+>", function()

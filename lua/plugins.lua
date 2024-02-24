@@ -1,7 +1,9 @@
+-- vim: foldmethod=marker
 return {
     "nvim-tree/nvim-web-devicons",
     "tpope/vim-surround",
     "numToStr/FTerm.nvim",
+-- norcalli/nvim-colorizer.lua {{{
     {
         "norcalli/nvim-colorizer.lua",
         lazy = false,
@@ -9,6 +11,8 @@ return {
             require("colorizer").setup()
         end,
     },
+-- }}}
+-- folke/which-key.nvim {{{
     {
         "folke/which-key.nvim",
         -- event = "VeryLazy",
@@ -22,11 +26,15 @@ return {
             require("which-key").setup(opts)
         end,
     },
+-- }}}
+-- catppuccin/nvim" {{{
     { 
         "catppuccin/nvim", 
         name = "catppuccin", 
         priority = 1000,
     },
+-- }}}
+-- nvim-tree/nvim-tree.lua {{{
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",
@@ -41,6 +49,8 @@ return {
             require("nvim-tree").setup(opts)
         end,
     },
+-- }}}
+-- nvim-lualine/lualine.nvim {{{
     {
         "nvim-lualine/lualine.nvim",
         lazy = false,
@@ -51,6 +61,8 @@ return {
             require "plugin-configs.lualine"
         end,
     },
+-- }}}
+-- ukas-reineke/indent-blankline.nvim {{{
     { 
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
@@ -59,6 +71,8 @@ return {
             require("ibl").setup()
         end,
     },
+-- }}}
+-- nvim-treesitter/nvim-treesitter {{{
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
@@ -69,10 +83,14 @@ return {
           require("nvim-treesitter.configs").setup(opts)
         end,
     },
+-- }}}
+-- tpope/vim-fugitive {{{
     {
         "tpope/vim-fugitive",
         lazy = false,
     },
+-- }}}
+-- mfussenegger/nvim-lint {{{
     {
         "mfussenegger/nvim-lint",
         lazy = false,
@@ -80,10 +98,15 @@ return {
             require "plugin-configs.nvim-lint"
         end,
     },
-    { "junegunn/gv.vim",
+-- }}}
+-- junegunn/gv.vim {{{
+    { 
+        "junegunn/gv.vim",
         dependencies = { "tpope/vim-fugitive" },
         lazy = false,
     },
+-- }}}
+-- lewis6991/gitsigns.nvim {{{
     {
         "lewis6991/gitsigns.nvim",
         ft = { "gitcommit", "diff" },
@@ -110,6 +133,8 @@ return {
         end,
         
     },
+-- }}}
+-- mhinz/vim-startify {{{
     {
         'mhinz/vim-startify',
         lazy = false,
@@ -117,6 +142,8 @@ return {
             require("plugin-configs.startify")
         end,
     },
+-- }}}
+-- williamboman/mason.nvim {{{
     {
         "williamboman/mason.nvim",
         opts = function()
@@ -126,9 +153,13 @@ return {
             require("mason").setup(opts)
         end,
     },
+-- }}}
+-- neovim/nvim-lspconfig {{{
     {
         "neovim/nvim-lspconfig",
     },
+-- }}}
+-- simrat39/rust-tools.nvim {{{
     {
         "simrat39/rust-tools.nvim",
         dependencies = "neovim/nvim-lspconfig",
@@ -140,6 +171,8 @@ return {
             require'rust-tools'.hover_actions.hover_actions()
         end
     },
+-- }}}
+-- saecki/crates.nvim {{{
     {
         'saecki/crates.nvim',
         tag = 'stable',
@@ -147,6 +180,8 @@ return {
             require("plugin-configs.crates")
         end,
     },
+-- }}}
+-- ray-x/go.nvim {{{
     {
         "ray-x/go.nvim",
         dependencies = {  -- optional packages
@@ -164,6 +199,8 @@ return {
             require("go").setup(opts)
         end,
     },
+-- }}}
+-- hrsh7th/nvim-cmp {{{
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
@@ -215,6 +252,8 @@ return {
             require("cmp").setup(opts)
         end,
     },
+-- }}}
+-- rcarriga/nvim-dap-ui {{{
     {
         "rcarriga/nvim-dap-ui",
         dependencies = { { "mfussenegger/nvim-dap" } },
@@ -223,6 +262,8 @@ return {
            require("dapui").setup({})
         end
     },
+-- }}}
+-- leoluz/nvim-dap-go {{{
     {
         "leoluz/nvim-dap-go",
         ft = {"go"},
@@ -230,6 +271,8 @@ return {
            require("dap-go").setup()
         end
     },
+-- }}}
+-- numToStr/Comment.nvim {{{
     {
         'numToStr/Comment.nvim',
         opts = {
@@ -237,7 +280,8 @@ return {
         },
         lazy = false,
     },
-
+-- }}}
+-- nvim-telescope/telescope.nvim {{{
     {
         "nvim-telescope/telescope.nvim",
         branch = '0.1.x',
@@ -258,13 +302,17 @@ return {
             end
         end,
     },
+-- }}}
+-- iamcco/markdown-preview.nvim {{{
     {
         "iamcco/markdown-preview.nvim",
         ft = {"markdown"},
         build = function() vim.fn["mkdp#util#install"]() end,
     },
+-- }}}
     { 'tpope/vim-dadbod', lazy = true },
     { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+-- kristijanhusak/vim-dadbod-ui {{{
     {
         "kristijanhusak/vim-dadbod-ui",
         dependencies = {
@@ -282,6 +330,8 @@ return {
             vim.g.db_ui_use_nerd_fonts = 1
         end,
     },
+-- }}}
+-- romgrk/barbar.nvim {{{
     {
         'romgrk/barbar.nvim',
         dependencies = {
@@ -297,4 +347,5 @@ return {
         },
         version = '^1.0.0', -- optional: only update when a new 1.x version is released
     },
+-- }}}
 }
