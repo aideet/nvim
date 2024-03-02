@@ -3,6 +3,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "tpope/vim-surround",
     "numToStr/FTerm.nvim",
+    "mcchrish/nnn.vim",
 -- norcalli/nvim-colorizer.lua {{{
     {
         "norcalli/nvim-colorizer.lua",

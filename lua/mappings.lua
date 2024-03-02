@@ -28,6 +28,11 @@ map('n', '<leader>H', '<Cmd>noh<CR>', { silent = true, noremap = true })
 map('n', '<leader>e', ':NvimTreeFocus<CR>', { silent = true, noremap = true })
 -- }}}
 
+-- nnn file browser {{{
+map('n', '<leader>np', ':NnnPicker<CR>', { silent = true, noremap = true })
+map('n', '<leader>ne', ':NnnExplorer<CR>', { silent = true, noremap = true })
+-- }}}
+
 -- window navigation {{{
 map('n', '<C-h>', '<C-w>h', { noremap = true })
 map('n', '<C-l>', '<C-w>l', { noremap = true })
