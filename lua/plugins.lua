@@ -4,6 +4,7 @@ return {
     "tpope/vim-surround",
     "numToStr/FTerm.nvim",
     "mcchrish/nnn.vim",
+    'nvim-lua/plenary.nvim',
 -- norcalli/nvim-colorizer.lua {{{
     {
         "norcalli/nvim-colorizer.lua",
@@ -254,6 +255,7 @@ return {
         end,
     },
 -- }}}
+   'mfussenegger/nvim-dap',
 -- rcarriga/nvim-dap-ui {{{
     {
         "rcarriga/nvim-dap-ui",
