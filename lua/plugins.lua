@@ -161,17 +161,14 @@ return {
         "neovim/nvim-lspconfig",
     },
 -- }}}
--- simrat39/rust-tools.nvim {{{
+-- mrcjkb/rustaceanvim {{{
     {
-        "simrat39/rust-tools.nvim",
-        dependencies = "neovim/nvim-lspconfig",
-        opts = function ()
+        'mrcjkb/rustaceanvim',
+        version = '^4', -- Recommended
+        ft = { 'rust' },
+        config = function ()
             return require "plugin-configs.lsp-rust"
         end,
-        config = function (_, opts)
-            require('rust-tools').setup(opts)
-            require'rust-tools'.hover_actions.hover_actions()
-        end
     },
 -- }}}
 -- saecki/crates.nvim {{{
