@@ -13,6 +13,12 @@ opt.tabstop = 4
 opt.smartindent = true
 -- }}}
 
+-- Linebreak {{{
+vim.wo.wrap = true
+vim.wo.linebreak = true
+vim.wo.list = false
+-- }}}
+
 -- spell check {{{
 opt.spelllang = 'en_us'
 opt.spell = true
