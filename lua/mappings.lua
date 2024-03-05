@@ -58,7 +58,7 @@ map('t', '<A-i>', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { silent = tr
 -- }}}
 
 -- startify {{{
-map('n', '<leader>d', ':Startify<CR>', { silent = true, noremap = true }) 
+map('n', '<leader>^', ':Startify<CR>', { silent = true, noremap = true }) 
 -- }}}
 
 -- GitSigns {{{
@@ -72,7 +72,7 @@ set('n', 'K', show_documentation, { silent = true })
 -- LSP {{{
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-set('n', '<leader>f', vim.diagnostic.open_float)
+set('n', '<leader>d', vim.diagnostic.open_float)
 set('n', '[d', vim.diagnostic.goto_prev)
 set('n', ']d', vim.diagnostic.goto_next)
 set('n', '<leader>q', vim.diagnostic.setloclist)
