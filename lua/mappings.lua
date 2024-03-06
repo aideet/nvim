@@ -26,6 +26,7 @@ map('n', '<leader>H', '<Cmd>noh<CR>', { silent = true, noremap = true })
 
 -- Nvim Tree {{{
 map('n', '<leader>e', ':NvimTreeFocus<CR>', { silent = true, noremap = true })
+map('n', '<leader>E', ':NvimTreeClose<CR>', { silent = true, noremap = true })
 -- }}}
 
 -- nnn file browser {{{
@@ -89,8 +90,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local lsp_opts = {buffer = ev.buf }
         set('n', 'gD', vim.lsp.buf.declaration, lsp_opts)
         set('n', 'gd', vim.lsp.buf.definition, lsp_opts)
-        set('n', 'K', vim.lsp.buf.hover, lsp_opts)
         set('n', 'gi', vim.lsp.buf.implementation, lsp_opts)
+        set('n', 'gr', vim.lsp.buf.references, lsp_opts)
+        set('n', 'K', vim.lsp.buf.hover, lsp_opts)
         set('n', '<C-k>', vim.lsp.buf.signature_help, lsp_opts)
         set('n', '<leader>i', peek_definition, lsp_opts)
         set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, lsp_opts)
@@ -101,7 +103,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         set('n', '<leader>D', vim.lsp.buf.type_definition, lsp_opts)
         set('n', '<leader>r', vim.lsp.buf.rename, lsp_opts)
         set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, lsp_opts)
-        set('n', 'gr', vim.lsp.buf.references, lsp_opts)
         set('n', '<leader>cf', function()
             vim.lsp.buf.format { async = true }
         end, lsp_opts)
