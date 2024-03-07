@@ -102,8 +102,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, lsp_opts)
         set('n', '<leader>r', vim.lsp.buf.rename, lsp_opts)
-        set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, lsp_opts)
-        set('n', '<leader>cf', function()
+        set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, lsp_opts)
+        set('n', '<leader>lf', function()
             vim.lsp.buf.format { async = true }
         end, lsp_opts)
     end,
