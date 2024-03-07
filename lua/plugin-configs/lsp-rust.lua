@@ -34,3 +34,12 @@ vim.g.rustaceanvim = {
     },
 }
 
+vim.api.nvim_create_autocmd(
+  { "BufWritePost" },
+  { 
+    pattern = "*.rs", 
+    callback = function(ev)
+        vim.lsp.buf.format { async = true }
+    end
+  }
+)
