@@ -145,6 +145,12 @@ set('n', '<leader>/', function()
       {}
 )
 set('v', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", {})
+set('n', '<C-7>', function()
+        require("Comment.api").toggle.linewise.current()
+        vim.cmd('execute "norm j"')
+      end,
+      {}
+)
 -- }}}
 
 -- Telescope {{{
