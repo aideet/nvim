@@ -165,7 +165,7 @@ map('n', '<leader>fl', ':Telescope spell_suggest<CR>', { silent = true, noremap 
 -- map('n', '<leader>fp', ':Telescope terms<CR>', { silent = true, noremap = true})
 map('n', '<leader>fm', ':Telescope marks<CR>', { silent = true, noremap = true})
 map('n', '<leader>fs', ':Telescope search_history<CR>', { silent = true, noremap = true})
-
+map('n', '<leader>fk', ':Telescope keymaps<CR>', { silent = true, noremap = true})
 
 map('n', '<leader>gc', ':Telescope git_commits<CR>', { silent = true, noremap = true})
 map('n', '<leader>gs', ':Telescope git_status<CR>', { silent = true, noremap = true})
