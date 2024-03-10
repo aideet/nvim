@@ -166,6 +166,7 @@ map('n', '<leader>fl', ':Telescope spell_suggest<CR>', { silent = true, noremap 
 map('n', '<leader>fm', ':Telescope marks<CR>', { silent = true, noremap = true})
 map('n', '<leader>fs', ':Telescope search_history<CR>', { silent = true, noremap = true})
 map('n', '<leader>fk', ':Telescope keymaps<CR>', { silent = true, noremap = true})
+map('n', '<leader>ft', ':TodoTelescope<CR>', { silent = true, noremap = true})
 
 map('n', '<leader>gc', ':Telescope git_commits<CR>', { silent = true, noremap = true})
 map('n', '<leader>gs', ':Telescope git_status<CR>', { silent = true, noremap = true})
@@ -213,6 +214,7 @@ set('n', '<leader>ds', function ()
 -- dap-rust {{{
 -- see lsp-rust.lua
 -- }}}
+
 -- barbar (tabs) {{{
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true })
 map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true })
@@ -235,14 +237,7 @@ map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', { silent = true, noremap 
 map('n', '<A-p>', '<Cmd>BufferPick<CR>', { silent = true, noremap = true })
 -- }}}
 
--- -- neovide scaling
--- set("n", "<C-+>", function()
---   change_scale_factor(0.20)
--- end)
--- set("n", "<C-->", function()
---   change_scale_factor(-0.20)
--- end)
--- set("n", "<C-0>", function()
---   vim.g.neovide_scale_factor = 1.0
--- end)
+-- Todo Comment {{{
+map('n', '<leader>ot', ':TodoQuickFix<CR>', { silent = true, noremap = true})
+-- }}}
 

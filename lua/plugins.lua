@@ -348,4 +348,16 @@ return {
         version = '^1.0.0', -- optional: only update when a new 1.x version is released
     },
 -- }}}
+-- folke/todo-comments.nvim {{{
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = function ()
+            return require "plugin-configs.todo-comments"
+        end,
+        -- config = function (_, opts) 
+        --   require("nvim-treesitter.configs").setup(opts)
+        -- end,
+    },
+-- }}}
 }
