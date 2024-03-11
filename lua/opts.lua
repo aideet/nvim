@@ -12,13 +12,11 @@ opt.softtabstop = 4              -- num:  Number of spaces tabs count for in ins
 opt.tabstop = 4
 opt.smartindent = true
 -- }}}
-
 -- Linebreak {{{
 vim.wo.wrap = true
 vim.wo.linebreak = true
 vim.wo.list = false
 -- }}}
-
 -- spell check {{{
 opt.spelllang = 'en_us'
 opt.spell = true
@@ -27,7 +25,6 @@ opt.title = true
 opt.titlelen = 0 -- do not shorten title
 opt.titlestring = 'nvim %{expand("%:p")}'
 -- }}}
-
 --  Context {{{
 opt.colorcolumn = '120'           -- str:  Show col for max line length
 opt.number = true                -- bool: Show line numbers
@@ -37,27 +34,30 @@ opt.scrolloff = 4                -- int:  Min num lines of context
 opt.signcolumn = "yes"           -- str:  Show the sign column
 opt.ruler = false
 -- }}}
-
 --  Filetypes {{{
 opt.encoding = 'utf8'            -- str:  String encoding to use
 opt.fileencoding = 'utf8'        -- str:  File encoding to use
 -- }}}
-
 --  Theme {{{
 opt.syntax = "ON"                -- str:  Allow syntax highlighting
 opt.termguicolors = true         -- bool: If term supports ui color then enable
 -- }}}
-
 --  Search {{{
 opt.ignorecase = true            -- bool: Ignore case in search patterns
 opt.smartcase = true             -- bool: Override ignorecase if search contains capitals
 opt.incsearch = true             -- bool: Use incremental search
 opt.hlsearch = true             -- bool: Highlight search matches
 -- }}}
-
 --  Splits {{{
 opt.splitright = true            -- bool: Place new window to right of current one
 opt.splitbelow = true            -- bool: Place new window below the current one
+-- }}}
+--  Plantuml server {{{
+-- run plantuml server locally:
+-- docker run -d -p 8091:8080 plantuml/plantuml-server:jetty
+g.mkdp_preview_options = {
+  uml = { server = "http://localhost:8091" },
+}
 -- }}}
 
 opt.laststatus = 3 -- global statusline

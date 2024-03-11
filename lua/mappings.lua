@@ -3,6 +3,7 @@
 local map = vim.api.nvim_set_keymap
 local set = vim.keymap.set
 
+-- which-key {{{ 
 local wk = require("which-key")
 -- wk.register({
 --    ["<leader>"] = {
@@ -11,65 +12,53 @@ local wk = require("which-key")
 --
 --    }
 -- })
-
+-- }}}
 -- escape to NORMAL mode {{{ 
 map('i', 'jk', '<Esc>', { noremap = true })
 -- }}}
-
 -- Open with system app {{{
 map('n', 'gx', "<Cmd>silent execute '!xdg-open '.shellescape(expand('<cfile>'), 1)<CR>", { silent = true, noremap = true })
 -- }}}
-
 -- un-highlight search occurrences {{{
 map('n', '<leader>H', '<Cmd>noh<CR>', { silent = true, noremap = true })
 -- }}}
-
 -- Nvim Tree {{{
 map('n', '<leader>e', ':NvimTreeFocus<CR>', { silent = true, noremap = true })
 map('n', '<leader>E', ':NvimTreeClose<CR>', { silent = true, noremap = true })
 -- }}}
-
 -- nnn file browser {{{
 map('n', '<leader>np', ':NnnPicker<CR>', { silent = true, noremap = true })
 map('n', '<leader>ne', ':NnnExplorer<CR>', { silent = true, noremap = true })
 -- }}}
-
 -- window navigation {{{
 map('n', '<C-h>', '<C-w>h', { noremap = true })
 map('n', '<C-l>', '<C-w>l', { noremap = true })
 map('n', '<C-j>', '<C-w>j', { noremap = true })
 map('n', '<C-k>', '<C-w>k', { noremap = true })
 -- }}}
-
 -- navigation in insert mode {{{
 map('i', '<C-h>', '<Left>', { noremap = true })
 map('i', '<C-l>', '<Right>', { noremap = true })
 map('i', '<C-j>', '<Down>', { noremap = true })
 map('i', '<C-k>', '<Up>', { noremap = true })
 -- }}}
-
 -- line numbers {{{
 map('n', '<leader>n', ':set nu!<CR>', { silent = true, noremap = true })
 map('n', '<leader>rn', ':set rnu!<CR>', { silent = true, noremap = true })
 -- }}}
-
 -- Float term {{{
 map('n', '<A-i>', ':lua require("FTerm").toggle()<CR>', { silent = true, noremap = true })
 map('t', '<A-i>', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { silent = true, noremap = true }) -- see https://www.reddit.com/r/neovim/comments/cger8p/how_quickly_close_a_terminal_buffer/
 -- }}}
-
 -- startify {{{
 map('n', '<leader>^', ':Startify<CR>', { silent = true, noremap = true }) 
 -- }}}
-
 -- GitSigns {{{
 map('n', '<leader>ga', '<Cmd>Gitsigns toggle_current_line_blame<CR>', { silent = true, noremap = true })
 -- }}}
-
 -- LSP float documentation {{{
-set('n', 'K', show_documentation, { silent = true })
+-- set('n', 'K', show_documentation, { silent = true }) -- obsolete with vim.lsp.buf.hover
 -- }}}
-
 -- LSP {{{
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -109,7 +98,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 -- }}}
-
 -- crates {{{
 local crates = require("crates")
 local crates_opts = { silent = true }
@@ -137,7 +125,6 @@ set("n", "<leader>cR", crates.open_repository, crates_opts)
 set("n", "<leader>cD", crates.open_documentation, crates_opts)
 set("n", "<leader>cC", crates.open_crates_io, crates_opts)
 -- }}}
-
 -- Comment {{{
 set('n', '<leader>/', function()
         require("Comment.api").toggle.linewise.current()
@@ -152,7 +139,6 @@ set('n', '<C-7>', function()
       {}
 )
 -- }}}
-
 -- Telescope {{{
 map('n', '<leader>ff', ':Telescope find_files<CR>', { silent = true, noremap = true})
 map('n', '<leader>fa', ':Telescope find_files follow=true no_ignore=true hidden=true<CR>', { silent = true, noremap = true})
@@ -164,6 +150,7 @@ map('n', '<leader>fz', ':Telescope current_buffer_fuzzy_find<CR>', { silent = tr
 map('n', '<leader>fl', ':Telescope spell_suggest<CR>', { silent = true, noremap = true})
 -- map('n', '<leader>fp', ':Telescope terms<CR>', { silent = true, noremap = true})
 map('n', '<leader>fm', ':Telescope marks<CR>', { silent = true, noremap = true})
+map('n', '<leader>fr', ':Telescope registers<CR>', { silent = true, noremap = true})
 map('n', '<leader>fs', ':Telescope search_history<CR>', { silent = true, noremap = true})
 map('n', '<leader>fk', ':Telescope keymaps<CR>', { silent = true, noremap = true})
 map('n', '<leader>ft', ':TodoTelescope<CR>', { silent = true, noremap = true})
@@ -184,13 +171,11 @@ map('n', '<leader>to', ':Telescope lsp_outgoing_calls<CR>', { silent = true, nor
 map('n', '<leader>tr', ':Telescope lsp_references<CR>', { silent = true, noremap = true})
 map('n', '<leader>tt', ':Telescope lsp_type_definitions<CR>', { silent = true, noremap = true})
 -- }}}
-
 -- Markdown preview {{{
 map('n', '<leader>mdp', ':MarkdownPreview<CR>', { silent = true, noremap = true})
 map('n', '<leader>mds', ':MarkdownPreviewStop<CR>', { silent = true, noremap = true})
 map('n', '<leader>mdt', ':MarkdownPreviewToggle<CR>', { silent = true, noremap = true})
 -- }}}
-
 -- dap {{{
 map('n', '<leader>db', ':DapToggleBreakpoint<CR>', { silent = true, noremap = true})
 map('n', '<f5>', ':DapContinue<CR>', { silent = true, noremap = true})
@@ -210,11 +195,9 @@ set('n', '<leader>ds', function ()
         { silent = true, noremap = true}
     )
 -- }}}
-
 -- dap-rust {{{
 -- see lsp-rust.lua
 -- }}}
-
 -- barbar (tabs) {{{
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true })
 map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true })
@@ -236,7 +219,6 @@ map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', { silent = true, noremap 
 -- Magic buffer-picking mode
 map('n', '<A-p>', '<Cmd>BufferPick<CR>', { silent = true, noremap = true })
 -- }}}
-
 -- Todo Comment {{{
 map('n', '<leader>ot', ':TodoQuickFix<CR>', { silent = true, noremap = true})
 -- }}}
