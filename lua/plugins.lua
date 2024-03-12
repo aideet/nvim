@@ -36,6 +36,18 @@ return {
         priority = 1000,
     },
 -- }}}
+-- kevinhwang91/nvim-ufo {{{
+    {
+        "kevinhwang91/nvim-ufo",
+        lazy = false,
+        dependencies = {
+            "kevinhwang91/promise-async",
+        },
+        config = function()
+            require "plugin-configs.nvim-ufo"
+        end,
+    },
+-- }}}
 -- nvim-tree/nvim-tree.lua {{{
     {
         "nvim-tree/nvim-tree.lua",

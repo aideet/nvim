@@ -222,4 +222,13 @@ map('n', '<A-p>', '<Cmd>BufferPick<CR>', { silent = true, noremap = true })
 -- Todo Comment {{{
 map('n', '<leader>ot', ':TodoQuickFix<CR>', { silent = true, noremap = true})
 -- }}}
-
+set('n', 'zR', require('ufo').openAllFolds)
+set('n', 'zM', require('ufo').closeAllFolds)
+set('n', 'zr', require('ufo').openFoldsExceptKinds)
+set('n', 'zm', require('ufo').closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+set('n', 'zz', function()
+    local winid = require('ufo').peekFoldedLinesUnderCursor()
+    if not winid then
+        vim.lsp.buf.hover()
+    end
+end)
