@@ -22,7 +22,6 @@ end
 
 local opts = {
     open_fold_hl_timeout = 100,
-    -- close_fold_kinds_for_ft = {'imports', 'comment'},
     close_fold_kinds_for_ft = {rust = {'imports', 'comment'}, go = {'imports'}},
     -- close_fold_kinds_for_ft = {default = {}},
     preview = {
