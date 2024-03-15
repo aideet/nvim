@@ -171,6 +171,9 @@ return {
 -- neovim/nvim-lspconfig {{{
     {
         "neovim/nvim-lspconfig",
+        config = function()
+            require("plugin-configs.lsp-yaml")
+        end,
     },
 -- }}}
 -- mrcjkb/rustaceanvim {{{
