@@ -1,7 +1,7 @@
 
 require('lint').linters_by_ft = {
   yaml = {'yamllint',},
-  sh = {'dotenv_linter',},
+  -- sh = {'dotenv_linter',}, -- collides with shell scripts see https://neovim.discourse.group/t/how-to-add-custom-filetype-detection-to-various-env-files/4272
   json = {'jsonlint',},
   html = {'tidy',},
 } 
