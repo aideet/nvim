@@ -53,6 +53,9 @@ map('t', '<A-i>', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { silent = tr
 -- startify {{{
 map('n', '<leader>^', ':Startify<CR>', { silent = true, noremap = true }) 
 -- }}}
+-- fugitive {{{
+map('n', '<leader>gg', '<Cmd>Git<CR>', { silent = true, noremap = true })
+-- }}}
 -- GitSigns {{{
 map('n', '<leader>ga', '<Cmd>Gitsigns toggle_current_line_blame<CR>', { silent = true, noremap = true })
 -- }}}
