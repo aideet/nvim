@@ -14,7 +14,7 @@ local wk = require("which-key")
 -- })
 -- }}}
 -- escape to NORMAL mode {{{ 
-map('i', 'jk', '<Esc>', { noremap = true })
+set({'i', 'v'}, 'jk', '<Esc>', { noremap = true })
 -- }}}
 -- Open with system app {{{
 map('n', 'gx', "<Cmd>silent execute '!xdg-open '.shellescape(expand('<cfile>'), 1)<CR>", { silent = true, noremap = true })
