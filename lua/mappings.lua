@@ -36,11 +36,14 @@ map('n', '<C-l>', '<C-w>l', { noremap = true })
 map('n', '<C-j>', '<C-w>j', { noremap = true })
 map('n', '<C-k>', '<C-w>k', { noremap = true })
 -- }}}
--- navigation in insert mode {{{
+-- buffer navigation {{{
 map('i', '<C-h>', '<Left>', { noremap = true })
 map('i', '<C-l>', '<Right>', { noremap = true })
 map('i', '<C-j>', '<Down>', { noremap = true })
 map('i', '<C-k>', '<Up>', { noremap = true })
+
+set({'n', 'i'}, '<A-k>', '<C-y>', { noremap = true })
+set({'n', 'i'}, '<A-j>', '<C-e>', { noremap = true })
 -- }}}
 -- line numbers {{{
 map('n', '<leader>n', ':set nu!<CR>', { silent = true, noremap = true })
