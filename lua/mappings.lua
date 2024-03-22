@@ -204,6 +204,10 @@ set('n', '<leader>ds', function ()
 -- dap-rust {{{
 -- see lsp-rust.lua
 -- }}}
+-- Dadbod DB Client {{{
+map('n', '<leader>pu', ':DBUIToggle<CR>', { silent = true, noremap = true})
+map('v', '<leader>pe', ':DB<CR>', { silent = true, noremap = true})
+-- }}}
 -- barbar (tabs) {{{
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true })
 map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true })
