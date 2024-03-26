@@ -82,3 +82,5 @@ opt.updatetime = 250
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
 
+g.db_ui_execute_on_save = 0
+
