@@ -72,7 +72,7 @@ set('n', '<leader>d', vim.diagnostic.open_float)
 set('n', '[d', vim.diagnostic.goto_prev)
 set('n', ']d', vim.diagnostic.goto_next)
 set('n', '<leader>q', vim.diagnostic.setloclist)
-set('n', '<leader>D', '<CMD>DiagnosticsToggleVirtualText<CR>')
+set('n', '<leader>D', '<CMD>LspDiagnosticsToggleVirtualText<CR>')
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
