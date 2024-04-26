@@ -104,6 +104,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 -- }}}
+-- Rust {{{
+set('n', '<leader>me', '<CMD>RustLsp expandMacro<CR>')
+-- }}}
 -- crates {{{
 local crates = require("crates")
 local crates_opts = { silent = true }
