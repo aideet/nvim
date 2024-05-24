@@ -1,5 +1,5 @@
 local options = {
-    ensure_installed = { "lua", "rust", "go", "yaml", "markdown", "json", "http", "gitcommit", "gitignore", "vim", "vimdoc" },
+    ensure_installed = { "lua", "rust", "go", "yaml", "xml", "markdown", "json", "http", "graphql", "gitcommit", "gitignore", "vim", "vimdoc" },
 
     highlight = {
         enable = true,

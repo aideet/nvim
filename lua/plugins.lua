@@ -177,7 +177,8 @@ return {
     {
         'mrcjkb/rustaceanvim',
         version = '^4', -- Recommended
-        ft = { 'rust' },
+        -- ft = { 'rust' },
+        lazy = false,
         config = function ()
             return require "plugin-configs.lsp-rust"
         end,
@@ -371,5 +372,28 @@ return {
         --   require("nvim-treesitter.configs").setup(opts)
         -- end,
     },
+-- }}}
+-- vhyrro/luarocks.nvim {{{
+    {
+      "vhyrro/luarocks.nvim",
+      priority = 1000,
+      config = true,
+      opts = {
+        rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }
+      }
+    },
+    -- }}}
+    -- rest-nvim/rest.nvim {{{
+    {
+      "rest-nvim/rest.nvim",
+      ft = "http",
+      dependencies = { "luarocks.nvim" },
+      opts = function ()
+          return require "plugin-configs.rest"
+      end,
+      config = function(_, opts)
+        require("rest-nvim").setup(opts)
+      end,
+    }
 -- }}}
 }

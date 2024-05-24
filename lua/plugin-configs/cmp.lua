@@ -48,7 +48,7 @@ local options = {
       scrollbar = false,
     },
     documentation = {
-      border = border "CmpDocBorder",
+      border = border "CmpDocBorder", -- fixme: syntax?
       winhighlight = "Normal:CmpDoc",
     },
   },

@@ -28,6 +28,9 @@ vim.g.rustaceanvim = {
         hover_actions = {
           auto_focus = true,      
         },
+        float_win_config = {
+          border = 'rounded',
+        },
     },
     server = {
         on_attach = on_attach,
