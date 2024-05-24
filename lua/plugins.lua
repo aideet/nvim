@@ -173,6 +173,14 @@ return {
         "neovim/nvim-lspconfig",
     },
 -- }}}
+-- rmagatti/goto-preview {{{
+{
+  'rmagatti/goto-preview',
+  config = function()
+    require('goto-preview').setup {}
+  end
+},
+-- }}}
 -- mrcjkb/rustaceanvim {{{
     {
         'mrcjkb/rustaceanvim',
