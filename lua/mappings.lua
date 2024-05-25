@@ -2,7 +2,6 @@
 
 local map = vim.api.nvim_set_keymap
 local set = vim.keymap.set
-local wk = require("which-key")
 
 -- escape to NORMAL mode {{{ 
 set('i', 'jk', '<Esc>', { noremap = true })
@@ -10,6 +9,55 @@ set('i', 'jk', '<Esc>', { noremap = true })
 
 -- WhichKey {{{ 
 set({'n', 'v', 'i'}, '<A-w>', '<Cmd>WhichKey<CR>', { noremap = true, desc = "WhichKey" })
+
+local wk = require("which-key")
+wk.register({ 
+    ["<leader>g"] = {name = "Goto / Git"},
+    ["<leader>n"] = {name = "Line Numbers"},
+    ["<leader>m"] = {name = "Markdown Preview"},
+    ["<leader>f"] = {name = "Find"},
+    ["<leader>t"] = {name = "LSP Telescope"},
+    ["<leader>c"] = {name = "Crates"},
+    ["<leader>d"] = {name = "Debug"},
+    ["<leader>r"] = {name = "Rust"},
+    ["<leader>p"] = {name = "DB"},
+    ["<leader>w"] = {name = "Workspace"},
+    ["<leader>o"] = {name = "Todos"},
+    ["["] = {name = "Previous match"},
+    ["]"] = {name = "Next match"},
+    ["g"] = {name = "Lsp / Moves / Search"},
+    ["z"] = {name = "Folds / Spelling / Scrolling"},
+})
+
+wk.register({ -- Visual Mode
+    ["<leader>c"] = {name = "Crates"},
+    ["<leader>p"] = {name = "DB"},
+}, { mode = "v"})
+-- }}}
+
+-- Open with system app {{{
+map('n', '<leader>gx', "<Cmd>silent execute '!xdg-open '.shellescape(expand('<cfile>'), 1)<CR>", { silent = true, noremap = true, desc = "Open with system app" })
+-- }}}
+
+-- un-highlight search occurrences {{{
+map('n', '<leader>H', '<Cmd>noh<CR>', { silent = true, noremap = true, desc = "Search highlight off" })
+-- }}}
+
+-- Nvim Tree {{{
+map('n', '<leader>e', ':NvimTreeFocus<CR>', { silent = true, noremap = true, desc = "Nvim Tree focus" })
+map('n', '<leader>E', ':NvimTreeClose<CR>', { silent = true, noremap = true, desc = "Nvim Tree close" })
+-- }}}
+
+-- nnn file browser {{{
+map('n', '<leader>fp', ':NnnPicker<CR>', { silent = true, noremap = true, desc = "File picker" })
+map('n', '<leader>fe', ':NnnExplorer<CR>', { silent = true, noremap = true, desc = "File explorer" })
+-- }}}
+
+-- window navigation {{{
+map('n', '<C-h>', '<C-w>h', { noremap = true, desc = "Window switch left" })
+map('n', '<C-l>', '<C-w>l', { noremap = true, desc = "Window switch right" })
+map('n', '<C-j>', '<C-w>j', { noremap = true, desc = "Window switch down" })
+map('n', '<C-k>', '<C-w>k', { noremap = true, desc = "Window switch up" })
 -- }}}
 
 -- buffer navigation {{{
@@ -18,168 +66,36 @@ map('i', '<C-l>', '<Right>', { noremap = true, desc = "Cursor right" })
 map('i', '<C-j>', '<Down>', { noremap = true, desc = "Cursor down" })
 map('i', '<C-k>', '<Up>', { noremap = true, desc = "Cursor up" })
 
--- scrolling {{{
 set({'n', 'i'}, '<A-k>', '<C-y>', { noremap = true, desc = "Scroll up" })
 set({'n', 'i'}, '<A-j>', '<C-e>', { noremap = true, desc = "Scroll down" })
 -- }}}
 
--- WhichKey Normal Mode {{{
-wk.register({ 
-    ["<leader>H"] = { "<Cmd>noh<CR>", "Search Highlight Off" },
-    ["<leader>e"] = { ":NvimTreeFocus<CR>", "Nvim Tree Focus" },
-    ["<leader>E"] = { ":NvimTreeClose<CR>", "Nvim Tree Close" },
-    ["<leader>M"] = { "<CMD>RustLsp expandMacro<CR>", "Expand rust macro" },
-    ["<leader>^"] = { ":Startify<CR>", "Startify" },
-
-    -- Debug {{{
-    ["<f5>"] = { ":DapContinue<CR>", "Debug continue" },
-    ["<f6>"] = { ":DapTerminate<CR>", "Debug stop" },
-    ["<f7>"] = { ":DapStepInto<CR>", "Debug step into" },
-    ["<f8>"] = { ":DapStepOut<CR>", "Debug step out" },
-    ["<f9>"] = { ":DapStepOver<CR>", "Debug step over" },
-    ["<f10>"] = { ":DapPlayPause<CR>", "Debug play/pause" },
-    -- }}}
-
-    -- Window switch {{{
-    ["<C-h>"] = { "<C-w>h", "Window switch left" },
-    ["<C-l>"] = { "<C-w>l", "Window switch right" },
-    ["<C-j>"] = { "<C-w>j", "Window switch down" },
-    ["<C-k>"] = { "<C-w>k", "Window switch up" },
-    -- }}}
-
-    -- Goto / Git {{{
-    ["<leader>g"] = {
-       name = "Goto / Git",
-       x = { "<Cmd>silent execute '!xdg-open '.shellescape(expand('<cfile>'), 1)<CR>", "Open with system app" },
-       g = { "<Cmd>Git<CR>", "Git tool" },
-       a = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "Git annotations" },
-       c = { ":Telescope git_commits<CR>", "Git commits" },
-       s = { ":Telescope git_status<CR>", "Git status" },
-       b = { ":Telescope git_branches<CR>", "Git branches" },
-    },
-    -- }}}
-
-    -- Line numbers {{{
-    ["<leader>n"] = {
-       name = "Line Numbers",
-       n = { ":set nu!<CR>", "Toggle line numbers" },
-       r = { ":set rnu!<CR>", "Toggle relative line numbers" },
-    },
-    -- }}}
-
-    -- Markdown preview {{{
-    ["<leader>m"] = {
-       name = "Markdown Preview",
-       p = { ":MarkdownPreview<CR>", "Preview" },
-       s = { ":MarkdownPreviewStop<CR>", "Preview stop" },
-       t = { ":MarkdownPreviewToggle<CR>", "Preview toggle" },
-    },
-    -- }}}
-
-    -- Find {{{
-    ["<leader>f"] = {
-       name = "Find",
-       p = { ":NnnPicker<CR>", "File picker" },
-       e = { ":NnnExplorer<CR>", "File explorer" },
-       f = { ":Telescope find_files<CR>", "Find files" },
-       a = { ":Telescope find_files follow=true no_ignore=true hidden=true<CR>", "Find hidden files" },
-       w = { ":Telescope live_grep<CR>", "Grep" },
-       b = { ":Telescope buffers<CR>", "Find buffer" },
-       h = { ":Telescope help_tags<CR>", "Find help tags" },
-       o = { ":Telescope oldfiles<CR>", "Find old files" },
-       z = { ":Telescope current_buffer_fuzzy_find<CR>", "Find fuzzy in buffer" },
-       l = { ":Telescope spell_suggest<CR>", "Find spelling" },
-       m = { ":Telescope marks<CR>", "Find marks" },
-       r = { ":Telescope registers<CR>", "Find registers" },
-       s = { ":Telescope search_history<CR>", "Find search history" },
-       k = { ":Telescope keymaps<CR>", "Find keymaps" },
-       t = { ":TodoTelescope<CR>", "Find todos" },
-    },
-    -- }}}
-
-    -- Lsp Telescope {{{
-    ["<leader>t"] = {
-       name = "LSP Telescope",
-       p = { ":Telescope diagnostics<CR>", "Diagnostics" },
-       d = { ":Telescope lsp_definitions<CR>", "Definitions" },
-       s = { ":Telescope lsp_document_symbols<CR>", "Document symbols" },
-       S = { ":Telescope lsp_document_symbols ignore_symbols=variable<CR>", "Document symbols (no vars)" },
-       w = { ":Telescope lsp_workspace_symbols<CR>", "Workspace symbols" },
-       W = { ":Telescope lsp_dynamic_workspace_symbols<CR>", "Dynamic document symbols" },
-       m = { ":Telescope lsp_implementations<CR>", "Implementations" },
-       i = { ":Telescope lsp_incoming_calls<CR>", "Incoming calls" },
-       o = { ":Telescope lsp_outgoing_calls<CR>", "Outgoing calls" },
-       r = { ":Telescope lsp_references<CR>", "References" },
-       x = { ":Telescope lsp_type_definitions<CR>", "Type definitions" },
-    },
-    -- }}}
-
-    -- Crates {{{
-    ["<leader>c"] = {
-       name = "Crates",
-       t = { "<CMD>lua require('crates').toggle()<CR>", "Toggle annotations" },
-       r = { "<CMD>lua require('crates').reload()<CR>", "Reload" },
-       v = { "<CMD>lua require('crates').show_versions_popup()<CR>", "Show version popup" },
-       f = { "<CMD>lua require('crates').show_features_popup()<CR>", "Show features popup" },
-       d = { "<CMD>lua require('crates').show_dependencies_popup()<CR>", "Show dependencies popup" },
-       u = { "<CMD>lua require('crates').update_crate()<CR>", "Update crate" },
-       a = { "<CMD>lua require('crates').update_all_crates()<CR>", "Update all crates" },
-       U = { "<CMD>lua require('crates').upgrade_crate()<CR>", "Upgrade crate" },
-       A = { "<CMD>lua require('crates').upgrade_all_crates()<CR>", "Upgrade all crates" },
-       x = { "<CMD>lua require('crates').expand_plain_crate_to_inline_table()<CR>", "Expand to inline table" },
-       X = { "<CMD>lua require('crates').extract_crate_into_table()<CR>", "Extract into table" },
-       H = { "<CMD>lua require('crates').open_homepage()<CR>", "Homepage" },
-       R = { "<CMD>lua require('crates').open_repository()<CR>", "Repository" },
-       D = { "<CMD>lua require('crates').open_documentation()<CR>", "Documentation" },
-       C = { "<CMD>lua require('crates').open_crates_io()<CR>", "Crates.io" },
-    },
-    -- }}}
-
-    -- Debug {{{
-    ["<leader>d"] = {
-       name = "Debug",
-       b = { ":DapToggleBreakpoint<CR>", "Toggle breakpoint" },
-       r = { ":DapToggleRepl<CR>", "Toggle Repl" },
-       f = { ":DapUiFloat<CR>", "UI float" },
-       u = { ":DapUiToggle<CR>", "UI toggle" },
-    },
-    -- }}}
-
-    -- DB {{{
-    ["<leader>p"] = {
-       name = "DB",
-       u = { ":DBUIToggle<CR>", "DB UI toggle" },
-       f = { ":DBUIFindBuffer<CR>", "DB find buffer" },
-    },
-    -- }}}
-
-})
--- }}}
-
-
--- Visual Mode {{{
-wk.register({ -- Visual Mode
-    -- Crates {{{
-    ["<leader>c"] = {
-       name = "Crates",
-       u = { "<CMD>lua require('crates').update_crate()<CR>", "Update crate" },
-       U = { "<CMD>lua require('crates').upgrade_crate()<CR>", "Upgrade crate" },
-    },
-    -- }}}
-
-    -- DB {{{
-    ["<leader>p"] = {
-       name = "DB",
-       e = { ":DB<CR>", "DB execute" },
-    },
-    -- }}}
-}, { mode = "v"})
+-- line numbers {{{
+map('n', '<leader>nn', ':set nu!<CR>', { silent = true, noremap = true, desc = "Toggle line numbers" })
+map('n', '<leader>nr', ':set rnu!<CR>', { silent = true, noremap = true, desc = "Toggle relative line numbers" })
 -- }}}
 
 -- Float term {{{
-map('n', '<A-i>', ':lua require("FTerm").toggle()<CR>', { silent = true, noremap = true })
-map('t', '<A-i>', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { silent = true, noremap = true }) -- see https://www.reddit.com/r/neovim/comments/cger8p/how_quickly_close_a_terminal_buffer/
+map('n', '<A-i>', ':lua require("FTerm").toggle()<CR>', { silent = true, noremap = true, desc = "Toggle float term" })
+map('t', '<A-i>', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { silent = true, noremap = true, desc = "Toggle float term" }) -- see https://www.reddit.com/r/neovim/comments/cger8p/how_quickly_close_a_terminal_buffer/
 -- }}}
+
+-- startify {{{
+map('n', '<leader>^', ':Startify<CR>', { silent = true, noremap = true, desc = "Startify" }) 
+-- }}}
+
+-- fugitive {{{
+map('n', '<leader>gg', '<Cmd>Git<CR>', { silent = true, noremap = true, desc = "Git tool" })
+-- }}}
+
+-- GitSigns {{{
+map('n', '<leader>ga', '<Cmd>Gitsigns toggle_current_line_blame<CR>', { silent = true, noremap = true, desc = "Git toggle annotations" })
+-- }}}
+
+-- LSP float documentation {{{
+-- set('n', 'K', show_documentation, { silent = true }) -- obsolete with vim.lsp.buf.hover
+-- }}}
+
 -- LSP {{{
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -196,19 +112,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
         local lsp_opts = {buffer = ev.buf }
-        -- local wk = require("which-key")
-        -- wk.register({
-        --    ["g"] = {
-        --        name = "LSP Goto",
-        --        D = { "vim.lsp.buf.declaration", "Goto declaration" },
-        --        d = { "vim.lsp.buf.definition", "Goto definition" },
-        --        i = { "vim.lsp.buf.implementation", "Goto implementation" },
-        --        r = { "vim.lsp.buf.references", "Goto references" },
-        --        t = { "vim.lsp.buf.type_definition", "Goto type definition" },
-        --    }
-        -- }, lsp_opts )
 
         lsp_opts["desc"] = "Go to declaration"
         set('n', 'gD', vim.lsp.buf.declaration, lsp_opts)
@@ -263,6 +167,45 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, lsp_opts)
     end,
 })
+-- }}}
+
+-- Rust {{{
+set('n', '<leader>rm', '<CMD>RustLsp expandMacro<CR>', { desc = "Expand macro" })
+set('n', '<leader>rr', '<CMD>RustLsp run<CR>', { desc = "Run" })
+set('n', '<leader>rR', '<CMD>RustLsp runnabels<CR>', { desc = "List runnabels" })
+set('n', '<leader>rd', '<CMD>RustLsp debug<CR>', { desc = "Debug" })
+set('n', '<leader>rD', '<CMD>RustLsp debuggables<CR>', { desc = "List debuggabels" })
+
+-- see plugin-configs/lsp-rust for more key bindings 
+-- }}}
+
+-- crates {{{
+local crates = require("crates")
+
+set("n", "<leader>ct", crates.toggle, { silent = true, desc = "Toggle annotations"})
+
+set("n", "<leader>cr", crates.reload, { silent = true, desc = "Reload" })
+
+set("n", "<leader>cv", crates.show_versions_popup, { silent = true, desc = "Preview version" })
+set("n", "<leader>cf", crates.show_features_popup, { silent = true, desc = "Preview features" })
+set("n", "<leader>cd", crates.show_dependencies_popup, { silent = true, desc = "Preview dependecies" })
+
+set("n", "<leader>cu", crates.update_crate, { silent = true, desc = "Update crate" })
+set("v", "<leader>cu", crates.update_crates, { silent = true, desc = "Update crates" })
+set("n", "<leader>ca", crates.update_all_crates, { silent = true, desc = "Update all crates" })
+set("n", "<leader>cU", crates.upgrade_crate, { silent = true, desc = "Upgrade crate" })
+set("v", "<leader>cU", crates.upgrade_crates, { silent = true, desc = "Upgrade crates" })
+set("n", "<leader>cA", crates.upgrade_all_crates, { silent = true, desc = "Upgrade all crates" })
+
+set("n", "<leader>cx", crates.expand_plain_crate_to_inline_table, { silent = true, desc = "Expand to inline table" })
+set("n", "<leader>cX", crates.extract_crate_into_table, { silent = true, desc = "Extract into table" })
+
+set("n", "<leader>cH", crates.open_homepage, { silent = true, desc = "Open homepage" })
+set("n", "<leader>cR", crates.open_repository, { silent = true, desc = "Open repository" })
+set("n", "<leader>cD", crates.open_documentation, { silent = true, desc = "Open documentation" })
+set("n", "<leader>cC", crates.open_crates_io, { silent = true, desc = "Open crates.io" })
+-- }}}
+
 -- Comment {{{
 set('n', '<leader>/', function()
         require("Comment.api").toggle.linewise.current()
@@ -277,25 +220,82 @@ set('n', '<C-7>', function()
       { desc = "Toggle comment" }
 )
 -- }}}
+
+-- Telescope {{{
+map('n', '<leader>ff', ':Telescope find_files<CR>', { silent = true, noremap = true, desc = "Find files"})
+map('n', '<leader>fa', ':Telescope find_files follow=true no_ignore=true hidden=true<CR>', { silent = true, noremap = true, desc = "Find hidden files"})
+map('n', '<leader>fw', ':Telescope live_grep<CR>', { silent = true, noremap = true, desc = "Grep"})
+map('n', '<leader>fb', ':Telescope buffers<CR>', { silent = true, noremap = true, desc = "Find buffer"})
+map('n', '<leader>fh', ':Telescope help_tags<CR>', { silent = true, noremap = true, desc = "Find help tags"})
+map('n', '<leader>fo', ':Telescope oldfiles<CR>', { silent = true, noremap = true, desc = "find old files"})
+map('n', '<leader>fz', ':Telescope current_buffer_fuzzy_find<CR>', { silent = true, noremap = true, desc = "Find fuzzy in buffer"})
+map('n', '<leader>fl', ':Telescope spell_suggest<CR>', { silent = true, noremap = true, desc = "Find spelling"})
+-- map('n', '<leader>fp', ':Telescope terms<CR>', { silent = true, noremap = true})
+map('n', '<leader>fm', ':Telescope marks<CR>', { silent = true, noremap = true, desc = "Find marks"})
+map('n', '<leader>fr', ':Telescope registers<CR>', { silent = true, noremap = true, desc = "Find registers"})
+map('n', '<leader>fs', ':Telescope search_history<CR>', { silent = true, noremap = true, desc = "Find search history"})
+map('n', '<leader>fk', ':Telescope keymaps<CR>', { silent = true, noremap = true, desc = "Find keymaps"})
+map('n', '<leader>ft', ':TodoTelescope<CR>', { silent = true, noremap = true, desc = "Find todos"})
+
+map('n', '<leader>gc', ':Telescope git_commits<CR>', { silent = true, noremap = true, desc = "Git commits"})
+map('n', '<leader>gs', ':Telescope git_status<CR>', { silent = true, noremap = true, desc = "Git status"})
+map('n', '<leader>gb', ':Telescope git_branches<CR>', { silent = true, noremap = true, desc = "Git branches"})
+
+map('n', '<leader>tp', ':Telescope diagnostics<CR>', { silent = true, noremap = true, desc = "Diagonstics"})
+map('n', '<leader>td', ':Telescope lsp_definitions<CR>', { silent = true, noremap = true, desc = "Definitions"})
+map('n', '<leader>ts', ':Telescope lsp_document_symbols<CR>', { silent = true, noremap = true, desc = "Document symbols"})
+map('n', '<leader>tS', ':Telescope lsp_document_symbols ignore_symbols=variable<CR>', { silent = true, noremap = true, desc = "Document symbols (no vars)"})
+map('n', '<leader>tw', ':Telescope lsp_workspace_symbols<CR>', { silent = true, noremap = true, desc = "Workspace symbols"})
+map('n', '<leader>tW', ':Telescope lsp_dynamic_workspace_symbols<CR>', { silent = true, noremap = true, desc = "Dynamic document symbols"})
+map('n', '<leader>tm', ':Telescope lsp_implementations<CR>', { silent = true, noremap = true, desc = "Implementations"})
+map('n', '<leader>ti', ':Telescope lsp_incoming_calls<CR>', { silent = true, noremap = true, desc = "Incoming calls"})
+map('n', '<leader>to', ':Telescope lsp_outgoing_calls<CR>', { silent = true, noremap = true, desc = "Outgoing calls"})
+map('n', '<leader>tr', ':Telescope lsp_references<CR>', { silent = true, noremap = true, desc = "References"})
+map('n', '<leader>tt', ':Telescope lsp_type_definitions<CR>', { silent = true, noremap = true, desc = "Type definitions"})
+-- }}}
+
+-- Markdown preview {{{
+map('n', '<leader>mp', ':MarkdownPreview<CR>', { silent = true, noremap = true, desc = "Preview open"})
+map('n', '<leader>ms', ':MarkdownPreviewStop<CR>', { silent = true, noremap = true, desc = "Preview stop"})
+map('n', '<leader>mt', ':MarkdownPreviewToggle<CR>', { silent = true, noremap = true, desc = "Preview toggle"})
+-- }}}
+
 -- dap {{{
+map('n', '<leader>db', ':DapToggleBreakpoint<CR>', { silent = true, noremap = true, desc = "Toggle breakpoint"})
+map('n', '<f5>', ':DapContinue<CR>', { silent = true, noremap = true, desc = "Debug continue"})
+map('n', '<f6>', ':DapTerminate<CR>', { silent = true, noremap = true, desc = "Debug stop"})
+map('n', '<f7>', ':DapStepInto<CR>', { silent = true, noremap = true, desc = "Debug step into"})
+map('n', '<f8>', ':DapStepOut<CR>', { silent = true, noremap = true, desc = "Debug step out"})
+map('n', '<f9>', ':DapStepOver<CR>', { silent = true, noremap = true, desc = "Debug step over"})
+map('n', '<f10>', ':DapPlayPause<CR>', { silent = true, noremap = true, desc = "Debug play/pause"})
+map('n', '<leader>dr', ':DapToggleRepl<CR>', { silent = true, noremap = true, desc = "Toggle REPL"})
+map('n', '<leader>df', ':DapUiFloat<CR>', { silent = true, noremap = true, desc = "UI float"})
+map('n', '<leader>du', ':DapUiToggle<CR>', { silent = true, noremap = true, desc = "UI toggle"})
 set('n', '<leader>ds', function ()
             local widgets = require('dap.ui.widgets');
             local sidebar = widgets.sidebar(widgets.scopes);
             sidebar.open();
         end,
-        { silent = true, noremap = true}
+        { silent = true, noremap = true, desc = "Widgets sidebar"}
     )
 -- }}}
+
+-- Dadbod DB Client {{{
+map('n', '<leader>pu', ':DBUIToggle<CR>', { silent = true, noremap = true, desc = "DB UI toggle"})
+map('n', '<leader>pf', ':DBUIFindBuffer<CR>', { silent = true, noremap = true, desc = "DB find buffer"})
+map('v', '<leader>pe', ':DB<CR>', { silent = true, noremap = true, desc = "DB execute"})
+-- }}}
+
 -- barbar (tabs) {{{
-map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true })
-map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true })
-map('n', '<A-.>', '<Cmd>BufferNext<CR>', { silent = true, noremap = true })
-map('n', '<Tab>', '<Cmd>BufferNext<CR>', { silent = true, noremap = true })
-map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', { silent = true, noremap = true })
-map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', { silent = true, noremap = true })
+map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true, desc = "Previous tab" })
+map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { silent = true, noremap = true, desc = "Previous tab" })
+map('n', '<A-.>', '<Cmd>BufferNext<CR>', { silent = true, noremap = true, desc = "Next tab" })
+map('n', '<Tab>', '<Cmd>BufferNext<CR>', { silent = true, noremap = true, desc = "Next tab" })
+map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', { silent = true, noremap = true, desc = "Move tab left" })
+map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', { silent = true, noremap = true, desc = "Move tab right" })
 -- map('n', '<A-p>', '<Cmd>BufferPin<CR>', { silent = true, noremap = true })
-map('n', '<A-c>', '<Cmd>BufferClose<CR>', { silent = true, noremap = true })
-map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', { silent = true, noremap = true })
+map('n', '<A-c>', '<Cmd>BufferClose<CR>', { silent = true, noremap = true, desc = "Tab close" })
+map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', { silent = true, noremap = true, desc = "Tab close all but current" })
 -- Wipeout buffer
 --                 :BufferWipeout
 -- Close commands
@@ -305,11 +305,13 @@ map('n', '<A-o>', '<Cmd>BufferCloseAllButCurrent<CR>', { silent = true, noremap 
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
-map('n', '<A-p>', '<Cmd>BufferPick<CR>', { silent = true, noremap = true })
+map('n', '<A-p>', '<Cmd>BufferPick<CR>', { silent = true, noremap = true, desc = "Tab select" })
 -- }}}
+
 -- Todo Comment {{{
-map('n', '<leader>ot', ':TodoQuickFix<CR>', { silent = true, noremap = true})
+map('n', '<leader>ot', ':TodoQuickFix<CR>', { silent = true, noremap = true, desc = "List todos"})
 -- }}}
+
 -- ufo {{{
 set('n', 'zR', require('ufo').openAllFolds)
 set('n', 'zM', require('ufo').closeAllFolds)
