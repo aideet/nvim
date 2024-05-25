@@ -141,8 +141,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         lsp_opts["desc"] = "Peek type definition"
         set('n', '<leader>I', "<CMD>lua require('goto-preview').goto_preview_type_definition()<CR>", lsp_opts)
 
+        lsp_opts["desc"] = "Close peek window"
+        set('n', '<leader>k', "<CMD>lua close_peek_definition()<CR>", lsp_opts)
+
         lsp_opts["desc"] = "Close all peek windows"
-        set('n', '<leader>k', "<CMD>lua require('goto-preview').close_all_win()<CR>", lsp_opts)
+        set('n', '<leader>K', "<CMD>lua require('goto-preview').close_all_win()<CR>", lsp_opts)
 
         lsp_opts["desc"] = "Add workspace folder"
         set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, lsp_opts)

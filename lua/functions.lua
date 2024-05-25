@@ -19,6 +19,12 @@ function show_documentation()
     end
 end
 
+-- close recent goto-preview floating window
+function close_peek_definition()
+    local win = vim.api.nvim_get_current_win()
+    require("goto-preview.lib").close_if_is_goto_preview(win)
+end
+
 -- -- LSP preview definition (see https://github.com/neovim/neovim/pull/12368)
 -- local function preview_location_callback(_, result, method, _)
 --   if result == nil or vim.tbl_isempty(result) then
