@@ -4,22 +4,22 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "<leader>a", function()
             vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
         end,
-        { silent = true, buffer = bufnr }
+        { silent = true, buffer = bufnr, desc = "Code action"}
     )
     vim.keymap.set("n", "<C-space>", function()
             vim.cmd.RustLsp('hover', 'actions') -- supports rust-analyzer's grouping
         end,
-        { silent = true, buffer = bufnr }
+        { silent = true, buffer = bufnr, desc = "Code completion"}
     )
     vim.keymap.set("n", "<leader>h", function()
             vim.cmd.RustLsp('renderDiagnostic') -- supports rust-analyzer's grouping
         end,
-        { silent = true, buffer = bufnr }
+        { silent = true, buffer = bufnr, desc = "Preview Diagnostics"}
     )
     vim.keymap.set("n", "<leader>cc", function()
             vim.cmd.RustLsp('openCargo') -- supports rust-analyzer's grouping
         end,
-        { silent = true, buffer = bufnr }
+        { silent = true, buffer = bufnr, desc = "Open Cargo"}
     )
 end
 

@@ -2,12 +2,29 @@
 
 local map = vim.api.nvim_set_keymap
 local set = vim.keymap.set
-
 local wk = require("which-key")
 
--- Normal Mode {{{
+-- escape to NORMAL mode {{{ 
+set('i', 'jk', '<Esc>', { noremap = true })
+-- }}}
+
+-- WhichKey {{{ 
+set({'n', 'v', 'i'}, '<A-w>', '<Cmd>WhichKey<CR>', { noremap = true, desc = "WhichKey" })
+-- }}}
+
+-- buffer navigation {{{
+map('i', '<C-h>', '<Left>', { noremap = true, desc = "Cursor left" })
+map('i', '<C-l>', '<Right>', { noremap = true, desc = "Cursor right" })
+map('i', '<C-j>', '<Down>', { noremap = true, desc = "Cursor down" })
+map('i', '<C-k>', '<Up>', { noremap = true, desc = "Cursor up" })
+
+-- scrolling {{{
+set({'n', 'i'}, '<A-k>', '<C-y>', { noremap = true, desc = "Scroll up" })
+set({'n', 'i'}, '<A-j>', '<C-e>', { noremap = true, desc = "Scroll down" })
+-- }}}
+
+-- WhichKey Normal Mode {{{
 wk.register({ 
-    ["<leader>w"] = { "<Cmd>WhichKey<CR>", "Which Key" },
     ["<leader>H"] = { "<Cmd>noh<CR>", "Search Highlight Off" },
     ["<leader>e"] = { ":NvimTreeFocus<CR>", "Nvim Tree Focus" },
     ["<leader>E"] = { ":NvimTreeClose<CR>", "Nvim Tree Close" },
@@ -159,19 +176,6 @@ wk.register({ -- Visual Mode
 }, { mode = "v"})
 -- }}}
 
--- escape to NORMAL mode {{{ 
-set('i', 'jk', '<Esc>', { noremap = true })
--- }}}
--- buffer navigation {{{
-map('i', '<C-h>', '<Left>', { noremap = true })
-map('i', '<C-l>', '<Right>', { noremap = true })
-map('i', '<C-j>', '<Down>', { noremap = true })
-map('i', '<C-k>', '<Up>', { noremap = true })
-
--- scrolling
-set({'n', 'i'}, '<A-k>', '<C-y>', { noremap = true })
-set({'n', 'i'}, '<A-j>', '<C-e>', { noremap = true })
--- }}}
 -- Float term {{{
 map('n', '<A-i>', ':lua require("FTerm").toggle()<CR>', { silent = true, noremap = true })
 map('t', '<A-i>', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { silent = true, noremap = true }) -- see https://www.reddit.com/r/neovim/comments/cger8p/how_quickly_close_a_terminal_buffer/
@@ -179,9 +183,9 @@ map('t', '<A-i>', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { silent = tr
 -- LSP {{{
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-set('n', '<leader>d', vim.diagnostic.open_float)
-set('n', '[d', vim.diagnostic.goto_prev)
-set('n', ']d', vim.diagnostic.goto_next)
+set('n', '<leader>d', vim.diagnostic.open_float, {desc = "Preview diagnostics"})
+set('n', '<leader>g[', vim.diagnostic.goto_prev, {desc = "Go to prev diagnostics"})
+set('n', '<leader>g]', vim.diagnostic.goto_next, {desc = "Go to next diagnostics"})
 set('n', '<leader>q', vim.diagnostic.setloclist)
 set('n', '<leader>D', '<CMD>LspDiagnosticsToggleVirtualText<CR>')
 
@@ -193,7 +197,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-        -- local lsp_opts = {buffer = ev.buf }
+        local lsp_opts = {buffer = ev.buf }
         -- local wk = require("which-key")
         -- wk.register({
         --    ["g"] = {
@@ -205,23 +209,55 @@ vim.api.nvim_create_autocmd('LspAttach', {
         --        t = { "vim.lsp.buf.type_definition", "Goto type definition" },
         --    }
         -- }, lsp_opts )
+
+        lsp_opts["desc"] = "Go to declaration"
         set('n', 'gD', vim.lsp.buf.declaration, lsp_opts)
+
+        lsp_opts["desc"] = "Go to definition"
         set('n', 'gd', vim.lsp.buf.definition, lsp_opts)
+
+        lsp_opts["desc"] = "Go to implementation"
         set('n', 'gi', vim.lsp.buf.implementation, lsp_opts)
+
+        lsp_opts["desc"] = "List references"
         set('n', 'gr', vim.lsp.buf.references, lsp_opts)
+
+        lsp_opts["desc"] = "Go to type definition"
         set('n', 'gt', vim.lsp.buf.type_definition, lsp_opts)
+
+        lsp_opts["desc"] = "Show documentation"
         set('n', 'ö', vim.lsp.buf.hover, lsp_opts)
+
+        lsp_opts["desc"] = "Show signature"
         set({'n', 'i'}, '<C-ö>', vim.lsp.buf.signature_help, lsp_opts)
+
+        lsp_opts["desc"] = "Peek definition"
         set('n', '<leader>i', "<CMD>lua require('goto-preview').goto_preview_definition()<CR>", lsp_opts)
+
+        lsp_opts["desc"] = "Peek type definition"
         set('n', '<leader>I', "<CMD>lua require('goto-preview').goto_preview_type_definition()<CR>", lsp_opts)
+
+        lsp_opts["desc"] = "Close all peek windows"
         set('n', '<leader>k', "<CMD>lua require('goto-preview').close_all_win()<CR>", lsp_opts)
+
+        lsp_opts["desc"] = "Add workspace folder"
         set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, lsp_opts)
+
+        lsp_opts["desc"] = "Remove workspace folder"
         set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, lsp_opts)
+
+        lsp_opts["desc"] = "List workspace folder"
         set('n', '<leader>wl', function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, lsp_opts)
+
+        lsp_opts["desc"] = "Lsp Rename"
         set('n', '<leader>r', vim.lsp.buf.rename, lsp_opts)
+
+        lsp_opts["desc"] = "List code actions"
         set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, lsp_opts)
+
+        lsp_opts["desc"] = "Format code"
         set('n', '<leader>lf', function()
             vim.lsp.buf.format { async = true }
         end, lsp_opts)
@@ -231,14 +267,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 set('n', '<leader>/', function()
         require("Comment.api").toggle.linewise.current()
       end,
-      {}
+      { desc = "Toggle comment" }
 )
-set('v', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", {})
+set('v', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { desc = "Toggle comment" })
 set('n', '<C-7>', function()
         require("Comment.api").toggle.linewise.current()
         vim.cmd('execute "norm j"')
       end,
-      {}
+      { desc = "Toggle comment" }
 )
 -- }}}
 -- dap {{{
