@@ -23,6 +23,7 @@ wk.register({
     ["<leader>p"] = {name = "DB"},
     ["<leader>w"] = {name = "Workspace"},
     ["<leader>o"] = {name = "Todos"},
+    ["<leader>s"] = {name = "Color schemes"},
     ["["] = {name = "Previous match"},
     ["]"] = {name = "Next match"},
     ["g"] = {name = "Lsp / Moves / Search"},
@@ -37,6 +38,11 @@ wk.register({ -- Visual Mode
 
 -- Open with system app {{{
 map('n', '<leader>gx', "<Cmd>silent execute '!xdg-open '.shellescape(expand('<cfile>'), 1)<CR>", { silent = true, noremap = true, desc = "Open with system app" })
+-- }}}
+
+-- Color schemes {{{
+map('n', '<leader>sl', ':colorscheme catppuccin-latte<CR>', { silent = true, noremap = true, desc = "Light scheme" })
+map('n', '<leader>sd', ':colorscheme catppuccin-macchiato<CR>', { silent = true, noremap = true, desc = "Dark scheme" })
 -- }}}
 
 -- un-highlight search occurrences {{{
