@@ -28,6 +28,7 @@ wk.register({
     ["]"] = {name = "Next match"},
     ["g"] = {name = "Lsp / Moves / Search"},
     ["z"] = {name = "Folds / Spelling / Scrolling"},
+    ["zl"] = {name = "Spell check language"},
 })
 
 wk.register({ -- Visual Mode
@@ -41,10 +42,15 @@ map('n', '<leader>gx', "<Cmd>silent execute '!xdg-open '.shellescape(expand('<cf
 -- }}}
 
 -- Color schemes {{{
--- map('n', '<leader>sl', ':colorscheme catppuccin-latte<CR>', { silent = true, noremap = true, desc = "Light scheme" })
--- map('n', '<leader>sd', ':colorscheme catppuccin-macchiato<CR>', { silent = true, noremap = true, desc = "Dark scheme" })
 map('n', '<leader>sl', ':lua set_light_theme()<CR>', { silent = true, noremap = true, desc = "Light scheme" })
 map('n', '<leader>sd', ':lua set_dark_theme()<CR>', { silent = true, noremap = true, desc = "Dark scheme" })
+-- }}}
+
+-- Spell check {{{
+map('n', 'zle', ':set spell spelllang=en_us<CR>', { silent = true, noremap = true, desc = "en_US" })
+map('n', 'zld', ':set spell spelllang=de_de<CR>', { silent = true, noremap = true, desc = "en_DE" })
+map('n', 'zln', ':set nospell<CR>', { silent = true, noremap = true, desc = "Spell check off" })
+
 -- }}}
 
 -- un-highlight search occurrences {{{
