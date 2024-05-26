@@ -41,8 +41,10 @@ map('n', '<leader>gx', "<Cmd>silent execute '!xdg-open '.shellescape(expand('<cf
 -- }}}
 
 -- Color schemes {{{
-map('n', '<leader>sl', ':colorscheme catppuccin-latte<CR>', { silent = true, noremap = true, desc = "Light scheme" })
-map('n', '<leader>sd', ':colorscheme catppuccin-macchiato<CR>', { silent = true, noremap = true, desc = "Dark scheme" })
+-- map('n', '<leader>sl', ':colorscheme catppuccin-latte<CR>', { silent = true, noremap = true, desc = "Light scheme" })
+-- map('n', '<leader>sd', ':colorscheme catppuccin-macchiato<CR>', { silent = true, noremap = true, desc = "Dark scheme" })
+map('n', '<leader>sl', ':lua set_light_theme()<CR>', { silent = true, noremap = true, desc = "Light scheme" })
+map('n', '<leader>sd', ':lua set_dark_theme()<CR>', { silent = true, noremap = true, desc = "Dark scheme" })
 -- }}}
 
 -- un-highlight search occurrences {{{

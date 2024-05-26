@@ -25,6 +25,24 @@ function close_peek_definition()
     require("goto-preview.lib").close_if_is_goto_preview(win)
 end
 
+function set_dark_theme()
+    vim.cmd.colorscheme "catppuccin-macchiato"
+    vim.cmd('highlight Search guibg=DarkYellow guifg=Black')
+    vim.cmd('highlight CurSearch guibg=Yellow guifg=Blue gui=bold')
+    vim.cmd('highlight Visual gui=none cterm=none guibg=#494d65')
+    vim.cmd('highlight GitSignsCurrentLineBlame guifg=Azure2 guibg=LightSkyBlue4')
+    vim.cmd('highlight folded guibg=NONE')
+end
+
+function set_light_theme()
+    vim.cmd.colorscheme "catppuccin-latte"
+    -- vim.cmd('highlight Search guibg=DarkYellow guifg=Black')
+    -- vim.cmd('highlight CurSearch guibg=Yellow guifg=Blue gui=bold')
+    -- vim.cmd('highlight Visual gui=none cterm=none guibg=#494d65')
+    -- vim.cmd('highlight GitSignsCurrentLineBlame guifg=Azure2 guibg=LightSkyBlue4')
+    vim.cmd('highlight folded guibg=NONE')
+end
+
 -- -- LSP preview definition (see https://github.com/neovim/neovim/pull/12368)
 -- local function preview_location_callback(_, result, method, _)
 --   if result == nil or vim.tbl_isempty(result) then

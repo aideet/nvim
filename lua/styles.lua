@@ -29,13 +29,5 @@ vim.fn.sign_define("DiagnosticSignInfo",
 vim.fn.sign_define("DiagnosticSignHint",
     {text = "", texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint"})
 
-vim.cmd('highlight Search guibg=DarkYellow guifg=Black')
-vim.cmd('highlight CurSearch guibg=Yellow guifg=Blue gui=bold')
 
-vim.cmd('highlight Visual gui=none cterm=none guibg=#494d65')
-
-vim.cmd('highlight GitSignsCurrentLineBlame guifg=Azure2 guibg=LightSkyBlue4')
-
-vim.cmd('highlight folded guibg=NONE')
-
--- vim.api.nvim_set_hl(0, 'Search', { bg=DarkYellow, fg=Black, ctermbg=DarkYellow, ctermfg=Black })
+-- see functions.lua#set_dark/light_theme()

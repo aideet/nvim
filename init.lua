@@ -23,9 +23,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-vim.cmd.colorscheme "catppuccin-macchiato"
+-- vim.cmd.colorscheme "catppuccin-macchiato"
 -- vim.cmd.colorscheme "catppuccin-latte"
 require('plugin-configs/lsp-yaml')
 require('mappings')
 require('styles')
+
+set_dark_theme()
 
