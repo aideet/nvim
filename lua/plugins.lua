@@ -3,8 +3,20 @@ return {
     "nvim-tree/nvim-web-devicons",
     "tpope/vim-surround",
     "numToStr/FTerm.nvim",
-    "mcchrish/nnn.vim",
+    -- "mcchrish/nnn.vim",
     'nvim-lua/plenary.nvim',
+-- luukvbaal/nnn.nvim {{{
+    {
+        "luukvbaal/nnn.nvim",
+        lazy = false,
+        opts = function()
+            return require "plugin-configs.nnn"
+        end,
+        config = function(_, opts)
+            require("nnn").setup(opts)
+        end,
+    },
+-- }}}
 -- norcalli/nvim-colorizer.lua {{{
     {
         "norcalli/nvim-colorizer.lua",
