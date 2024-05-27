@@ -48,7 +48,7 @@ map('n', '<leader>sd', ':lua set_dark_theme()<CR>', { silent = true, noremap = t
 
 -- Spell check {{{
 map('n', 'zle', ':set spell spelllang=en_us<CR>', { silent = true, noremap = true, desc = "en_US" })
-map('n', 'zld', ':set spell spelllang=de_de<CR>', { silent = true, noremap = true, desc = "en_DE" })
+map('n', 'zld', ':set spell spelllang=de_de<CR>', { silent = true, noremap = true, desc = "de_DE" })
 map('n', 'zln', ':set nospell<CR>', { silent = true, noremap = true, desc = "Spell check off" })
 
 -- }}}
