@@ -24,6 +24,10 @@ execute again: `@@`
 
     <C-o>
 
+### jump in to floating windows
+
+Hit respective keybinding twice... if this does not work try `<C-w><C-w>'
+
 ### search-pattern movements
 
     {command}/{search-pattern}/{search-offset}
