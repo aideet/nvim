@@ -20,6 +20,7 @@ wk.register({
     ["<leader>c"] = {name = "Crates"},
     ["<leader>d"] = {name = "Debug"},
     ["<leader>r"] = {name = "Rust"},
+    ["<leader>rc"] = {name = "Crates"},
     ["<leader>p"] = {name = "DB"},
     ["<leader>w"] = {name = "Workspace"},
     ["<leader>o"] = {name = "Todos"},
@@ -32,7 +33,7 @@ wk.register({
 })
 
 wk.register({ -- Visual Mode
-    ["<leader>c"] = {name = "Crates"},
+    ["<leader>rc"] = {name = "Crates"},
     ["<leader>p"] = {name = "DB"},
 }, { mode = "v"})
 -- }}}
@@ -199,28 +200,28 @@ set('n', '<leader>rD', '<CMD>RustLsp debuggables<CR>', { desc = "List debuggabel
 -- crates {{{
 local crates = require("crates")
 
-set("n", "<leader>ct", crates.toggle, { silent = true, desc = "Toggle annotations"})
+set("n", "<leader>rct", crates.toggle, { silent = true, desc = "Toggle annotations"})
 
-set("n", "<leader>cr", crates.reload, { silent = true, desc = "Reload" })
+set("n", "<leader>rcr", crates.reload, { silent = true, desc = "Reload" })
 
-set("n", "<leader>cv", crates.show_versions_popup, { silent = true, desc = "Preview version" })
-set("n", "<leader>cf", crates.show_features_popup, { silent = true, desc = "Preview features" })
-set("n", "<leader>cd", crates.show_dependencies_popup, { silent = true, desc = "Preview dependecies" })
+set("n", "<leader>rcv", crates.show_versions_popup, { silent = true, desc = "Preview version" })
+set("n", "<leader>rcf", crates.show_features_popup, { silent = true, desc = "Preview features" })
+set("n", "<leader>rcd", crates.show_dependencies_popup, { silent = true, desc = "Preview dependecies" })
 
-set("n", "<leader>cu", crates.update_crate, { silent = true, desc = "Update crate" })
-set("v", "<leader>cu", crates.update_crates, { silent = true, desc = "Update crates" })
-set("n", "<leader>ca", crates.update_all_crates, { silent = true, desc = "Update all crates" })
-set("n", "<leader>cU", crates.upgrade_crate, { silent = true, desc = "Upgrade crate" })
-set("v", "<leader>cU", crates.upgrade_crates, { silent = true, desc = "Upgrade crates" })
-set("n", "<leader>cA", crates.upgrade_all_crates, { silent = true, desc = "Upgrade all crates" })
+set("n", "<leader>rcu", crates.update_crate, { silent = true, desc = "Update crate" })
+set("v", "<leader>rcu", crates.update_crates, { silent = true, desc = "Update crates" })
+set("n", "<leader>rca", crates.update_all_crates, { silent = true, desc = "Update all crates" })
+set("n", "<leader>rcU", crates.upgrade_crate, { silent = true, desc = "Upgrade crate" })
+set("v", "<leader>rcU", crates.upgrade_crates, { silent = true, desc = "Upgrade crates" })
+set("n", "<leader>rcA", crates.upgrade_all_crates, { silent = true, desc = "Upgrade all crates" })
 
-set("n", "<leader>cx", crates.expand_plain_crate_to_inline_table, { silent = true, desc = "Expand to inline table" })
-set("n", "<leader>cX", crates.extract_crate_into_table, { silent = true, desc = "Extract into table" })
+set("n", "<leader>rcx", crates.expand_plain_crate_to_inline_table, { silent = true, desc = "Expand to inline table" })
+set("n", "<leader>rcX", crates.extract_crate_into_table, { silent = true, desc = "Extract into table" })
 
-set("n", "<leader>cH", crates.open_homepage, { silent = true, desc = "Open homepage" })
-set("n", "<leader>cR", crates.open_repository, { silent = true, desc = "Open repository" })
-set("n", "<leader>cD", crates.open_documentation, { silent = true, desc = "Open documentation" })
-set("n", "<leader>cC", crates.open_crates_io, { silent = true, desc = "Open crates.io" })
+set("n", "<leader>rcH", crates.open_homepage, { silent = true, desc = "Open homepage" })
+set("n", "<leader>rcR", crates.open_repository, { silent = true, desc = "Open repository" })
+set("n", "<leader>rcD", crates.open_documentation, { silent = true, desc = "Open documentation" })
+set("n", "<leader>rcC", crates.open_crates_io, { silent = true, desc = "Open crates.io" })
 -- }}}
 
 -- Comment {{{
@@ -279,6 +280,8 @@ map('n', '<leader>mt', ':MarkdownPreviewToggle<CR>', { silent = true, noremap = 
 
 -- dap {{{
 map('n', '<leader>db', ':DapToggleBreakpoint<CR>', { silent = true, noremap = true, desc = "Toggle breakpoint"})
+set('n', '<Leader>dB', function() require('dap').set_breakpoint() end, { silent = true, noremap = true, desc = "Set breakpoint"})
+set('n', '<Leader>dl', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { silent = true, noremap = true, desc = "Set logpoint"})
 map('n', '<f5>', ':DapContinue<CR>', { silent = true, noremap = true, desc = "Debug continue"})
 map('n', '<f6>', ':DapTerminate<CR>', { silent = true, noremap = true, desc = "Debug stop"})
 map('n', '<f7>', ':DapStepInto<CR>', { silent = true, noremap = true, desc = "Debug step into"})
@@ -286,15 +289,38 @@ map('n', '<f8>', ':DapStepOut<CR>', { silent = true, noremap = true, desc = "Deb
 map('n', '<f9>', ':DapStepOver<CR>', { silent = true, noremap = true, desc = "Debug step over"})
 map('n', '<f10>', ':DapPlayPause<CR>', { silent = true, noremap = true, desc = "Debug play/pause"})
 map('n', '<leader>dr', ':DapToggleRepl<CR>', { silent = true, noremap = true, desc = "Toggle REPL"})
-map('n', '<leader>df', ':DapUiFloat<CR>', { silent = true, noremap = true, desc = "UI float"})
+map('n', '<leader>dF', ':DapUiFloat<CR>', { silent = true, noremap = true, desc = "UI float"})
 map('n', '<leader>du', ':DapUiToggle<CR>', { silent = true, noremap = true, desc = "UI toggle"})
-set('n', '<leader>ds', function ()
+set('n', '<Leader>dd', function() require('dap').run_last() end, { silent = true, noremap = true, desc = "Run last"})
+set('n', '<leader>dw', function ()
             local widgets = require('dap.ui.widgets');
             local sidebar = widgets.sidebar(widgets.scopes);
             sidebar.open();
         end,
         { silent = true, noremap = true, desc = "Widgets sidebar"}
     )
+set({'n', 'v'}, '<Leader>dh', function()
+      require('dap.ui.widgets').hover()
+    end,
+    { silent = true, noremap = true, desc = "Widgets hover"}
+)
+set({'n', 'v'}, '<Leader>dp', function()
+      require('dap.ui.widgets').preview()
+    end,
+    { silent = true, noremap = true, desc = "Widgets preview"}
+)
+set('n', '<Leader>df', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.frames)
+    end,
+    { silent = true, noremap = true, desc = "Widgets frames"}
+)
+set('n', '<Leader>ds', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.scopes)
+    end,
+    { silent = true, noremap = true, desc = "Widgets scopes"}
+)
 -- }}}
 
 -- Dadbod DB Client {{{

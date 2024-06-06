@@ -16,7 +16,7 @@ local on_attach = function(_, bufnr)
         end,
         { silent = true, buffer = bufnr, desc = "Preview Diagnostics"}
     )
-    vim.keymap.set("n", "<leader>cc", function()
+    vim.keymap.set("n", "<leader>rcc", function()
             vim.cmd.RustLsp('openCargo') -- supports rust-analyzer's grouping
         end,
         { silent = true, buffer = bufnr, desc = "Open Cargo"}

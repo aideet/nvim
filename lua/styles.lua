@@ -29,5 +29,11 @@ vim.fn.sign_define("DiagnosticSignInfo",
 vim.fn.sign_define("DiagnosticSignHint",
     {text = "", texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint"})
 
+vim.fn.sign_define('DapBreakpoint', {text='Ⓑ ', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointCondition', {text='Ⓒ ', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointRejected', {text='⮿ ', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapLogPoint', {text='Ⓛ ', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', {text='⮞ ', texthl='', linehl='', numhl=''})
 
 -- see functions.lua#set_dark/light_theme()
+
