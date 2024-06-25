@@ -48,6 +48,18 @@ return {
         priority = 1000,
     },
 -- }}}
+-- olimorris/onedarkpro.nvim {{{
+    {
+      "olimorris/onedarkpro.nvim",
+      priority = 1000, -- Ensure it loads first
+    },
+-- }}}
+-- Mofiqul/vscode.nvim {{{
+    -- {
+    --   "Mofiqul/vscode.nvim",
+    --   priority = 1000, -- Ensure it loads first
+    -- },
+-- }}}
 -- kevinhwang91/nvim-ufo {{{
     {
         "kevinhwang91/nvim-ufo",

@@ -26,7 +26,7 @@ execute again: `@@`
 
 ### jump in to floating windows
 
-Hit respective keybinding twice... if this does not work try `<C-w><C-w>'
+Hit respective keybinding twice... if this does not work try `<C-w><C-w>`
 
 ### search-pattern movements
 

@@ -174,7 +174,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, lsp_opts)
 
         lsp_opts["desc"] = "Lsp Rename"
-        set('n', '<leader>r', vim.lsp.buf.rename, lsp_opts)
+        set('n', '<A-r>', vim.lsp.buf.rename, lsp_opts)
 
         lsp_opts["desc"] = "List code actions"
         set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, lsp_opts)

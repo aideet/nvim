@@ -26,6 +26,7 @@ function close_peek_definition()
 end
 
 function set_dark_theme()
+    -- vim.o.background = 'dark'
     vim.cmd.colorscheme "catppuccin-macchiato"
     vim.cmd('highlight Search guibg=DarkYellow guifg=Black')
     vim.cmd('highlight CurSearch guibg=Yellow guifg=Blue gui=bold')
@@ -35,6 +36,7 @@ function set_dark_theme()
 end
 
 function set_light_theme()
+    -- vim.o.background = 'light'
     vim.cmd.colorscheme "catppuccin-latte"
     -- vim.cmd('highlight Search guibg=DarkYellow guifg=Black')
     -- vim.cmd('highlight CurSearch guibg=Yellow guifg=Blue gui=bold')
