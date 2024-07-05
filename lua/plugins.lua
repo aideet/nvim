@@ -216,6 +216,24 @@ return {
         end,
     },
 -- }}}
+-- neotest {{{
+    {
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-neotest/nvim-nio",
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter"
+        },
+        config = function ()
+            return require('neotest').setup {
+                adapters = {
+                    require('rustaceanvim.neotest')
+                },
+            }
+        end,
+    },
+-- }}}
 -- saecki/crates.nvim {{{
     {
         'saecki/crates.nvim',
