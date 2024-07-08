@@ -375,6 +375,6 @@ map('n', '<leader>rts', '<Cmd>Neotest summary<CR>', { silent = true, noremap = t
 map('n', '<leader>rto', '<Cmd>Neotest output<CR>', { silent = true, noremap = true, desc = "Show output" })
 map('n', '<leader>rtp', '<Cmd>Neotest output_panel<CR>', { silent = true, noremap = true, desc = "Show output panel" })
 map('n', '<leader>rtw', '<Cmd>Neotest watch<CR>', { silent = true, noremap = true, desc = "Watch tests" })
-map('n', '<leader>rtd', '<Cmd>Neotest diagnostic<CR>', { silent = true, noremap = true, desc = "Show diagnostics" })
-map('n', '<leader>rti', '<Cmd>Neotest status<CR>', { silent = true, noremap = true, desc = "Show status signs" })
+-- map('n', '<leader>rtd', '<Cmd>Neotest diagnostic<CR>', { silent = true, noremap = true, desc = "Show diagnostics" })
+-- map('n', '<leader>rti', '<Cmd>Neotest status<CR>', { silent = true, noremap = true, desc = "Show status signs" })
 -- }}}
