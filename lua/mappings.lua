@@ -21,6 +21,7 @@ wk.register({
     ["<leader>d"] = {name = "Debug"},
     ["<leader>r"] = {name = "Rust"},
     ["<leader>rc"] = {name = "Crates"},
+    ["<leader>rt"] = {name = "Neo Test"},
     ["<leader>p"] = {name = "DB"},
     ["<leader>w"] = {name = "Workspace"},
     ["<leader>o"] = {name = "Todos"},
@@ -366,4 +367,14 @@ set('n', 'zz', function()
         vim.lsp.buf.hover()
     end
 end)
+-- }}}
+--
+-- neotest {{{
+map('n', '<leader>rtr', '<Cmd>lua require("neotest").run.run()<CR>', { silent = true, noremap = true, desc = "Run nearest test" })
+map('n', '<leader>rts', '<Cmd>Neotest summary<CR>', { silent = true, noremap = true, desc = "Show summary" })
+map('n', '<leader>rto', '<Cmd>Neotest output<CR>', { silent = true, noremap = true, desc = "Show output" })
+map('n', '<leader>rtp', '<Cmd>Neotest output_panel<CR>', { silent = true, noremap = true, desc = "Show output panel" })
+map('n', '<leader>rtw', '<Cmd>Neotest watch<CR>', { silent = true, noremap = true, desc = "Watch tests" })
+map('n', '<leader>rtd', '<Cmd>Neotest diagnostic<CR>', { silent = true, noremap = true, desc = "Show diagnostics" })
+map('n', '<leader>rti', '<Cmd>Neotest status<CR>', { silent = true, noremap = true, desc = "Show status signs" })
 -- }}}

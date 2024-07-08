@@ -197,6 +197,17 @@ return {
         "neovim/nvim-lspconfig",
     },
 -- }}}
+-- lsp progress {{{
+    {
+      'linrongbin16/lsp-progress.nvim',
+      opts = function ()
+          return require "plugin-configs.lsp_progress"
+      end,
+      config = function (_, opts) 
+        require('lsp-progress').setup(opts)
+      end,
+    },
+-- }}}
 -- rmagatti/goto-preview {{{
 {
   'rmagatti/goto-preview',
