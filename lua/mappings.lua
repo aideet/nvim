@@ -13,6 +13,7 @@ set({'n', 'v', 'i'}, '<A-w>', '<Cmd>WhichKey<CR>', { noremap = true, desc = "Whi
 local wk = require("which-key")
 wk.register({ 
     ["<leader>g"] = {name = "Goto / Git"},
+    ["<leader>gm"] = {name = "Giti merge conflicts"},
     ["<leader>n"] = {name = "Line Numbers"},
     ["<leader>m"] = {name = "Markdown Preview"},
     ["<leader>f"] = {name = "Find"},
@@ -102,6 +103,9 @@ map('n', '<leader>^', ':Startify<CR>', { silent = true, noremap = true, desc = "
 
 -- fugitive {{{
 map('n', '<leader>gg', '<Cmd>Git<CR>', { silent = true, noremap = true, desc = "Git tool" })
+map('n', '<leader>gmc', '<Cmd>Gvdiffsplit!<CR>', { silent = true, noremap = true, desc = "Git merge diff" })
+map('n', '<leader>gmh', '<Cmd>diffget //2<CR>', { silent = true, noremap = true, desc = "Git merge left (head)" })
+map('n', '<leader>gml', '<Cmd>diffget //3<CR>', { silent = true, noremap = true, desc = "Git merge right (branch)" })
 -- }}}
 
 -- GitSigns {{{
