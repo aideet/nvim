@@ -41,24 +41,18 @@ return {
         end,
     },
 -- }}}
--- catppuccin/nvim" {{{
+-- theme catppuccin" {{{
     { 
         "catppuccin/nvim", 
         name = "catppuccin", 
         priority = 1000,
     },
 -- }}}
--- olimorris/onedarkpro.nvim {{{
+-- theme onedarkpro{{{
     {
       "olimorris/onedarkpro.nvim",
       priority = 1000, -- Ensure it loads first
     },
--- }}}
--- Mofiqul/vscode.nvim {{{
-    -- {
-    --   "Mofiqul/vscode.nvim",
-    --   priority = 1000, -- Ensure it loads first
-    -- },
 -- }}}
 -- kevinhwang91/nvim-ufo {{{
     {
