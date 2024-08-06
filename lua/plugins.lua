@@ -41,11 +41,17 @@ return {
         end,
     },
 -- }}}
--- theme catppuccin" {{{
+-- theme catppuccin {{{
     { 
         "catppuccin/nvim", 
         name = "catppuccin", 
         priority = 1000,
+    },
+-- }}}
+-- theme vscode {{
+    {
+      "Mofiqul/vscode.nvim",
+      priority = 1000, -- Ensure it loads first
     },
 -- }}}
 -- theme onedarkpro{{{

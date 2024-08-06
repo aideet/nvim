@@ -43,6 +43,7 @@ function set_light_theme()
     -- vim.cmd('highlight Visual gui=none cterm=none guibg=#494d65')
     -- vim.cmd('highlight GitSignsCurrentLineBlame guifg=Azure2 guibg=LightSkyBlue4')
     vim.cmd('highlight folded guibg=NONE')
+    -- vim.cmd('highlight Normal guibg=white')
 end
 
 -- -- LSP preview definition (see https://github.com/neovim/neovim/pull/12368)
