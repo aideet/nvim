@@ -48,6 +48,18 @@ return {
         priority = 1000,
     },
 -- }}}
+-- theme nightfox {{
+    {
+      "EdenEast/nightfox.nvim",
+      priority = 1000, -- Ensure it loads first
+    },
+-- }}}
+-- theme tokyonight {{
+    {
+      "folke/tokyonight.nvim",
+      priority = 1000, -- Ensure it loads first
+    },
+-- }}}
 -- theme vscode {{
     {
       "Mofiqul/vscode.nvim",

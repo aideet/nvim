@@ -1,6 +1,6 @@
 
 local options = {
-    
+    inlay_hints = { enabled = true },   
 }
 -- export on_attach & capabilities for custom lspconfigs
 

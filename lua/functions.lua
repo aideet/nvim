@@ -37,13 +37,16 @@ end
 
 function set_light_theme()
     vim.o.background = 'light'
-    vim.cmd.colorscheme "catppuccin-latte"
-    -- vim.cmd('highlight Search guibg=DarkYellow guifg=Black')
-    -- vim.cmd('highlight CurSearch guibg=Yellow guifg=Blue gui=bold')
+    vim.cmd.colorscheme "dayfox"
+    vim.cmd('highlight Search guibg=DarkYellow guifg=Black')
+    vim.cmd('highlight CurSearch guibg=Yellow guifg=Blue gui=bold')
     -- vim.cmd('highlight Visual gui=none cterm=none guibg=#494d65')
     -- vim.cmd('highlight GitSignsCurrentLineBlame guifg=Azure2 guibg=LightSkyBlue4')
+    vim.cmd('highlight CursorLine guibg=#e8dccf')
     vim.cmd('highlight folded guibg=NONE')
-    -- vim.cmd('highlight Normal guibg=white')
+    vim.cmd('highlight UfoFoldedEllipses guibg=white')
+    vim.cmd('highlight BufferCurrent guibg=#f6f2ee')
+    vim.cmd('highlight BufferCurrentSign guibg=#f6f2ee')
 end
 
 -- -- LSP preview definition (see https://github.com/neovim/neovim/pull/12368)
