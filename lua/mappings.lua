@@ -284,7 +284,8 @@ map('n', '<leader>tm', ':Telescope lsp_implementations<CR>', { silent = true, no
 map('n', '<leader>ti', ':Telescope lsp_incoming_calls<CR>', { silent = true, noremap = true, desc = "Incoming calls"})
 map('n', '<leader>to', ':Telescope lsp_outgoing_calls<CR>', { silent = true, noremap = true, desc = "Outgoing calls"})
 map('n', '<leader>tr', ':Telescope lsp_references<CR>', { silent = true, noremap = true, desc = "References"})
-map('n', '<leader>tt', ':Telescope lsp_type_definitions<CR>', { silent = true, noremap = true, desc = "Type definitions"})
+map('n', '<leader>tt', ':Telescope lsp_dynamic_workspace_symbols<CR>', { silent = true, noremap = true, desc = "find type"})
+map('n', '<leader>tT', ':Telescope lsp_type_definitions<CR>', { silent = true, noremap = true, desc = "Go to type definitions"})
 -- }}}
 
 -- Markdown preview {{{
