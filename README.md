@@ -28,6 +28,14 @@ execute again: `@@`
 
 Hit respective keybinding twice... if this does not work try `<C-w><C-w>`
 
+### move text
+
+    :m12    move current or selected lines after line 12
+    :m0     move current or selected lines before first line
+    :m$     move current or selected lines after last line
+    :m'a    move current or selected lines after mark 'a
+    :m'a-1  move current or selected lines before mark 'a
+
 ### search-pattern movements
 
     {command}/{search-pattern}/{search-offset}

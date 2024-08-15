@@ -87,6 +87,16 @@ set({'n', 'i'}, '<A-k>', '<C-y>', { noremap = true, desc = "Scroll up" })
 set({'n', 'i'}, '<A-j>', '<C-e>', { noremap = true, desc = "Scroll down" })
 -- }}}
 
+-- move lines {{{
+-- see https://vim.fandom.com/wiki/Moving_lines_up_or_down
+set({'n'}, '<C-A-k>', ':m .-2<CR>==', { noremap = true, desc = "Move line up" })
+set({'n'}, '<C-A-j>', ':m .+1<CR>==', { noremap = true, desc = "Move line down" })
+set({'i'}, '<C-A-k>', '<ESC>:m .-2<CR>==gi', { noremap = true, desc = "Move line up" })
+set({'i'}, '<C-A-j>', '<ESC>:m .+1<CR>==gi', { noremap = true, desc = "Move line down" })
+set({'v'}, '<C-A-k>', ":m '<-2<CR>gv=gv", { noremap = true, desc = "Move line up" })
+set({'v'}, '<C-A-j>', ":m '>+1<CR>gv=gv", { noremap = true, desc = "Move line down" })
+-- }}}
+
 -- line numbers {{{
 map('n', '<leader>nn', ':set nu!<CR>', { silent = true, noremap = true, desc = "Toggle line numbers" })
 map('n', '<leader>nr', ':set rnu!<CR>', { silent = true, noremap = true, desc = "Toggle relative line numbers" })

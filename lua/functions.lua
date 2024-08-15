@@ -40,13 +40,24 @@ function set_light_theme()
     vim.cmd.colorscheme "dayfox"
     vim.cmd('highlight Search guibg=DarkYellow guifg=Black')
     vim.cmd('highlight CurSearch guibg=Yellow guifg=Blue gui=bold')
+
     -- vim.cmd('highlight Visual gui=none cterm=none guibg=#494d65')
     -- vim.cmd('highlight GitSignsCurrentLineBlame guifg=Azure2 guibg=LightSkyBlue4')
-    vim.cmd('highlight CursorLine guibg=#e8dccf')
+    --
+    vim.cmd('highlight CursorLine guibg=#ede1d4')
+
     vim.cmd('highlight folded guibg=NONE')
     vim.cmd('highlight UfoFoldedEllipses guibg=white')
-    vim.cmd('highlight BufferCurrent guibg=#f6f2ee')
+
+    vim.cmd('highlight BufferCurrent gui=bold guibg=#f6f2ee')
     vim.cmd('highlight BufferCurrentSign guibg=#f6f2ee')
+    vim.cmd('highlight BufferCurrentMod guifg=#ac5402 guifg=#f6f2ee gui=bold')
+    vim.cmd('highlight BufferInactiveMod guibg=#ff6060 gui=bold')
+
+    vim.cmd('highlight IblIndent guifg=#f2e6d9')
+    vim.cmd('highlight IblScope guifg=#cc8332')
+    vim.cmd('IBLEnable') --in order to refresh the display (could be replaced by toggle to keep the actual state)
+
 end
 
 -- -- LSP preview definition (see https://github.com/neovim/neovim/pull/12368)
