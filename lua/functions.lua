@@ -47,7 +47,7 @@ function set_light_theme()
     vim.cmd('highlight CursorLine guibg=#ede1d4')
 
     vim.cmd('highlight folded guibg=NONE')
-    vim.cmd('highlight UfoFoldedEllipses guibg=white')
+    vim.cmd('highlight UfoFoldedEllipsis guibg=#96cccb')
 
     vim.cmd('highlight BufferCurrent gui=bold guibg=#f6f2ee')
     vim.cmd('highlight BufferCurrentSign guibg=#f6f2ee')
