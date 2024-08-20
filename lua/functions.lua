@@ -53,7 +53,7 @@ function set_light_theme()
     vim.cmd('highlight BufferCurrent gui=bold guibg=#f6f2ee')
     vim.cmd('highlight BufferCurrentSign guibg=#f6f2ee')
     vim.cmd('highlight BufferCurrentMod guifg=#467c7b guibg=#f6f2ee gui=bold')
-    vim.cmd('highlight BufferInactiveMod guifg=#568c8b)
+    vim.cmd('highlight BufferInactiveMod guifg=#568c8b')
 
     vim.cmd('highlight IblIndent guifg=#f2e6d9')
     vim.cmd('highlight IblScope guifg=#cc8332')
