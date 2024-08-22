@@ -1,7 +1,6 @@
 require("crates").setup {
     smart_insert = true,
     insert_closing_quote = true,
-    avoid_prerelease = true,
     autoload = true,
     autoupdate = true,
     autoupdate_throttle = 250,
@@ -12,7 +11,6 @@ require("crates").setup {
     curl_args = { "-sL", "--retry", "1" },
     max_parallel_requests = 80,
     open_programs = { "xdg-open", "open" },
-    disable_invalid_feature_diagnostic = false,
     text = {
         loading = "   Loading",
         version = "   %s",
@@ -126,7 +124,7 @@ require("crates").setup {
             jump_back = { "<c-o>", "<C-RightMouse>" },
         },
     },
-    src = {
+    completion = {
         insert_closing_quote = true,
         text = {
             prerelease = "  pre-release ",
@@ -135,6 +133,14 @@ require("crates").setup {
         coq = {
             enabled = false,
             name = "Crates",
+        },
+        cmp = {
+            enabled = true,
+        },
+        crates = {
+            enabled = true, -- disabled by default
+            max_results = 8, -- The maximum number of search results to display
+            min_chars = 3, -- The minimum number of charaters to type before completions begin appearing
         },
     },
     null_ls = {
