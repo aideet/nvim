@@ -11,33 +11,32 @@ set('i', 'jk', '<Esc>', { noremap = true })
 set({'n', 'v', 'i'}, '<A-w>', '<Cmd>WhichKey<CR>', { noremap = true, desc = "WhichKey" })
 
 local wk = require("which-key")
-wk.register({ 
-    ["<leader>g"] = {name = "Goto / Git"},
-    ["<leader>gm"] = {name = "Giti merge conflicts"},
-    ["<leader>n"] = {name = "Line Numbers"},
-    ["<leader>m"] = {name = "Markdown Preview"},
-    ["<leader>f"] = {name = "Find"},
-    ["<leader>t"] = {name = "LSP Telescope"},
-    ["<leader>c"] = {name = "Crates"},
-    ["<leader>d"] = {name = "Debug"},
-    ["<leader>r"] = {name = "Rust"},
-    ["<leader>rc"] = {name = "Crates"},
-    ["<leader>rt"] = {name = "Neo Test"},
-    ["<leader>p"] = {name = "DB"},
-    ["<leader>w"] = {name = "Workspace"},
-    ["<leader>o"] = {name = "Todos"},
-    ["<leader>s"] = {name = "Color schemes"},
-    ["["] = {name = "Previous match"},
-    ["]"] = {name = "Next match"},
-    ["g"] = {name = "Lsp / Moves / Search"},
-    ["z"] = {name = "Folds / Spelling / Scrolling"},
-    ["zl"] = {name = "Spell check language"},
-})
-
-wk.register({ -- Visual Mode
-    ["<leader>rc"] = {name = "Crates"},
-    ["<leader>p"] = {name = "DB"},
-}, { mode = "v"})
+wk.add( 
+  {
+    { "<leader>c", group = "Crates" },
+    { "<leader>d", group = "Debug" },
+    { "<leader>f", group = "Find" },
+    { "<leader>g", group = "Goto / Git" },
+    { "<leader>gm", group = "Giti merge conflicts" },
+    { "<leader>m", group = "Markdown Preview" },
+    { "<leader>n", group = "Line Numbers" },
+    { "<leader>o", group = "Todos" },
+    { "<leader>p", group = "DB" },
+    { "<leader>p", group = "DB", mode = "v" },
+    { "<leader>r", group = "Rust" },
+    { "<leader>rc", group = "Crates" },
+    { "<leader>rc", group = "Crates", mode = "v" },
+    { "<leader>rt", group = "Neo Test" },
+    { "<leader>s", group = "Color schemes" },
+    { "<leader>t", group = "LSP Telescope" },
+    { "<leader>w", group = "Workspace" },
+    { "[", group = "Previous match" },
+    { "]", group = "Next match" },
+    { "g", group = "Lsp / Moves / Search" },
+    { "z", group = "Folds / Spelling / Scrolling" },
+    { "zl", group = "Spell check language" },
+  }
+)
 -- }}}
 
 -- Open with system app {{{
