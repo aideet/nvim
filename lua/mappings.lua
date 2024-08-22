@@ -20,7 +20,7 @@ wk.add(
     { "<leader>gm", group = "Giti merge conflicts" },
     { "<leader>m", group = "Markdown Preview" },
     { "<leader>n", group = "Line Numbers" },
-    { "<leader>o", group = "Todos" },
+    { "<leader>o", group = "Todos / Diagnostics" },
     { "<leader>p", group = "DB" },
     { "<leader>p", group = "DB", mode = "v" },
     { "<leader>r", group = "Rust" },
@@ -131,8 +131,9 @@ map('n', '<leader>ga', '<Cmd>Gitsigns toggle_current_line_blame<CR>', { silent =
 set('n', '<leader>d', vim.diagnostic.open_float, {desc = "Preview diagnostics"})
 set('n', '<leader>g[', vim.diagnostic.goto_prev, {desc = "Go to prev diagnostics"})
 set('n', '<leader>g]', vim.diagnostic.goto_next, {desc = "Go to next diagnostics"})
-set('n', '<leader>q', vim.diagnostic.setloclist)
-set('n', '<leader>D', '<CMD>LspDiagnosticsToggleVirtualText<CR>')
+set('n', '<leader>od', vim.diagnostic.setqflist, {desc = "Open diagnostics list"})
+set('n', '<leader>oD', vim.diagnostic.setloclist, {desc = "Open current buffer diagnostics list"})
+set('n', '<leader>D', '<CMD>LspDiagnosticsToggleVirtualText<CR>', {desc = "Toggle Diagnostics float window"})
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
