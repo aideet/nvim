@@ -36,6 +36,20 @@ Hit respective keybinding twice... if this does not work try `<C-w><C-w>`
     :m'a    move current or selected lines after mark 'a
     :m'a-1  move current or selected lines before mark 'a
 
+### multi line editing
+
+enter V-Block Mode:
+
+    <C-S>v 
+
+Insert in V-Block mode:
+
+    I
+
+Append Line in V-Block mode:
+
+    $A
+
 ### search-pattern movements
 
     {command}/{search-pattern}/{search-offset}
@@ -43,7 +57,7 @@ Hit respective keybinding twice... if this does not work try `<C-w><C-w>`
 eg:
 
     v/goofy
-    v/goofe/e
+    v/goofy/e
 
 [search-offset](https://vimhelp.org/pattern.txt.html#search-offset)
 
