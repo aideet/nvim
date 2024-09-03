@@ -18,6 +18,7 @@ wk.add(
     { "<leader>f", group = "Find" },
     { "<leader>g", group = "Goto / Git" },
     { "<leader>gm", group = "Giti merge conflicts" },
+    { "<leader>l", group = "LSP" },
     { "<leader>m", group = "Markdown Preview" },
     { "<leader>n", group = "Line Numbers" },
     { "<leader>o", group = "Todos / Diagnostics" },

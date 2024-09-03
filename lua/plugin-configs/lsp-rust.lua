@@ -6,6 +6,11 @@ local on_attach = function(_, bufnr)
         end,
         { silent = true, buffer = bufnr, desc = "Code action"}
     )
+    vim.keymap.set("v", "<leader>a", function()
+            vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
+        end,
+        { silent = true, buffer = bufnr, desc = "Code action"}
+    )
     vim.keymap.set("n", "<C-space>", function()
             vim.cmd.RustLsp('hover', 'actions') -- supports rust-analyzer's grouping
         end,
