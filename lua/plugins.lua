@@ -72,6 +72,12 @@ return {
       priority = 1000, -- Ensure it loads first
     },
 -- }}}
+-- stevearc/dressing.nvim{{{
+{
+  'stevearc/dressing.nvim',
+  opts = {},
+},
+-- }}}
 -- kevinhwang91/nvim-ufo {{{
     {
         "kevinhwang91/nvim-ufo",
@@ -343,9 +349,18 @@ return {
     {
         "rcarriga/nvim-dap-ui",
         dependencies = { { "mfussenegger/nvim-dap" } },
-        ft = {"go", "rust"},
+        ft = {"go", "rust", "py"},
         config = function()
            require("dapui").setup({})
+        end
+    },
+-- }}}
+-- mfussenegger/nvim-dap-python{{{
+    {
+        "mfussenegger/nvim-dap-python",
+        ft = {"py"},
+        config = function()
+            require("dap-python").setup("python")
         end
     },
 -- }}}

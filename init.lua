@@ -27,5 +27,7 @@ require('plugin-configs/lsp-yaml')
 require('mappings')
 require('styles')
 
+require'lspconfig'.pyright.setup{}
+
 set_light_theme()
 -- set_dark_theme()
