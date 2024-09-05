@@ -152,7 +152,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         set('n', 'gd', vim.lsp.buf.definition, lsp_opts)
 
         lsp_opts["desc"] = "Go to implementation"
-        set('n', 'gi', vim.lsp.buf.implementation, lsp_opts)
+        set('n', 'gm', vim.lsp.buf.implementation, lsp_opts)
 
         lsp_opts["desc"] = "List references"
         set('n', 'gr', vim.lsp.buf.references, lsp_opts)
