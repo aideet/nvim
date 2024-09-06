@@ -449,6 +449,15 @@ return {
         version = '^1.0.0', -- optional: only update when a new 1.x version is released
     },
 -- }}}
+-- Bekaboo/dropbar.nvim {{{
+{
+    'Bekaboo/dropbar.nvim',
+    -- optional, but required for fuzzy finder support
+    dependencies = {
+      'nvim-telescope/telescope-fzf-native.nvim'
+    }
+},
+-- }}}
 -- folke/todo-comments.nvim {{{
     {
         "folke/todo-comments.nvim",

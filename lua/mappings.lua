@@ -60,6 +60,10 @@ map('n', 'zln', ':set nospell<CR>', { silent = true, noremap = true, desc = "Spe
 map('n', '<leader>H', '<Cmd>noh<CR>', { silent = true, noremap = true, desc = "Search highlight off" })
 -- }}}
 
+-- dropbar breadcrump {{{
+map('n', '<leader>b', '<CMD>lua require("dropbar.api").pick()<CR>', { silent = true, noremap = true, desc = "Breadcrump pick" })
+-- }}}
+--
 -- Nvim Tree {{{
 map('n', '<leader>e', ':NvimTreeFocus<CR>', { silent = true, noremap = true, desc = "Nvim Tree focus" })
 map('n', '<leader>E', ':NvimTreeClose<CR>', { silent = true, noremap = true, desc = "Nvim Tree close" })
