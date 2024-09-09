@@ -7,6 +7,10 @@ local set = vim.keymap.set
 set('i', 'jk', '<Esc>', { noremap = true })
 -- }}}
 
+-- Paste without losing text
+set("v", "p", '"_dP')
+-- }}}
+
 -- WhichKey {{{ 
 set({'n', 'v', 'i'}, '<A-w>', '<Cmd>WhichKey<CR>', { noremap = true, desc = "WhichKey" })
 
