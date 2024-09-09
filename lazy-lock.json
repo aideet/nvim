@@ -21,6 +21,7 @@
   "guihua.lua": { "branch": "master", "commit": "225db770e36aae6a1e9e3a65578095c8eb4038d3" },
   "gv.vim": { "branch": "master", "commit": "b6bb6664e2c95aa584059f195eb3a9f3cb133994" },
   "hererocks": { "branch": "master", "commit": "8bd2fcfdd65cfa7535ce39ea372a63b0bdb8e528" },
+  "hop.nvim": { "branch": "master", "commit": "8f51ef02700bb3cdcce94e92eff16170a6343c4f" },
   "indent-blankline.nvim": { "branch": "master", "commit": "db926997af951da38e5004ec7b9fbdc480b48f5d" },
   "lazy.nvim": { "branch": "main", "commit": "077102c5bfc578693f12377846d427f49bc50076" },
   "lsp-progress.nvim": { "branch": "main", "commit": "d5f4d28efe75ce636bfbe271eb45f39689765aab" },

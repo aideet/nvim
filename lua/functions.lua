@@ -34,6 +34,9 @@ function set_dark_theme()
     vim.cmd('highlight GitSignsCurrentLineBlame guifg=Azure2 guibg=LightSkyBlue4')
     vim.cmd('highlight folded guibg=NONE')
     -- vim.cmd('highlight DevIconMarkdown guifg=#568c8b')
+    vim.cmd('highlight HopNextKey guifg=#ff9900 gui=bold')
+    vim.cmd('highlight HopNextKey1 guifg=#ff9900 gui=bold')
+    vim.cmd('highlight HopNextKey2 guifg=#ff9900 gui=bold')
 end
 
 function set_light_theme()
@@ -61,6 +64,9 @@ function set_light_theme()
     vim.cmd('IBLEnable') --in order to refresh the display (could be replaced by toggle to keep the actual state)
 
     -- vim.cmd('highlight DevIconMarkdown guifg=#467c7b')
+    vim.cmd('highlight HopNextKey guifg=#ff9900 gui=bold')
+    vim.cmd('highlight HopNextKey1 guifg=#ff9900 gui=bold')
+    vim.cmd('highlight HopNextKey2 guifg=#ff9900 gui=bold')
 end
 
 -- -- LSP preview definition (see https://github.com/neovim/neovim/pull/12368)

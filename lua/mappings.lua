@@ -22,6 +22,7 @@ wk.add(
     { "<leader>f", group = "Find" },
     { "<leader>g", group = "Goto / Git" },
     { "<leader>gm", group = "Giti merge conflicts" },
+    { "<leader>h", group = "Hop" },
     { "<leader>l", group = "LSP" },
     { "<leader>m", group = "Markdown Preview" },
     { "<leader>n", group = "Line Numbers" },
@@ -64,10 +65,25 @@ map('n', 'zln', ':set nospell<CR>', { silent = true, noremap = true, desc = "Spe
 map('n', '<leader>H', '<Cmd>noh<CR>', { silent = true, noremap = true, desc = "Search highlight off" })
 -- }}}
 
+-- Hop {{{
+local hop = require('hop')
+map('n', '<leader>ha', '<CMD>HopAnywhere<CR>', { silent = true, noremap = true, desc = "anywhere" })
+map('n', '<leader>hw', '<CMD>HopWordCurrentLine<CR>', { silent = true, noremap = true, desc = "current line word" })
+map('n', '<leader>hh', '<CMD>HopWord<CR>', { silent = true, noremap = true, desc = "word" })
+map('n', '<leader>hc', '<CMD>HopChar1<CR>', { silent = true, noremap = true, desc = "char" })
+map('n', '<leader>hC', '<CMD>HopCamleCase<CR>', { silent = true, noremap = true, desc = "camel case" })
+map('n', '<leader>hb', '<CMD>HopChar2<CR>', { silent = true, noremap = true, desc = "bigram" })
+map('n', '<leader>hl', '<CMD>HopLine<CR>', { silent = true, noremap = true, desc = "line" })
+map('n', '<leader>hp', '<CMD>HopPattern<CR>', { silent = true, noremap = true, desc = "pattern" })
+map('n', '<leader>hs', '<CMD>HopNodes<CR>', { silent = true, noremap = true, desc = "Treesitter symbols" })
+map('n', '<leader>hy', '<CMD>HopPaste<CR>', { silent = true, noremap = true, desc = "yank without jumping" })
+map('n', '<leader>hY', '<CMD>HopYankChar1<CR>', { silent = true, noremap = true, desc = "yank between without jumping" })
+-- }}}
+
 -- dropbar breadcrump {{{
 map('n', '<leader>b', '<CMD>lua require("dropbar.api").pick()<CR>', { silent = true, noremap = true, desc = "Breadcrump pick" })
 -- }}}
---
+
 -- Nvim Tree {{{
 map('n', '<leader>e', ':NvimTreeFocus<CR>', { silent = true, noremap = true, desc = "Nvim Tree focus" })
 map('n', '<leader>E', ':NvimTreeClose<CR>', { silent = true, noremap = true, desc = "Nvim Tree close" })
