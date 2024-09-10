@@ -48,7 +48,10 @@ function set_light_theme()
     -- vim.cmd('highlight Visual gui=none cterm=none guibg=#494d65')
     -- vim.cmd('highlight GitSignsCurrentLineBlame guifg=Azure2 guibg=LightSkyBlue4')
     --
-    vim.cmd('highlight CursorLine guibg=#ede1d4')
+    -- vim.cmd('highlight CursorLine guibg=#ede1d4')
+    -- vim.cmd('highlight NvimTreeCursorLine guibg=#fff6e0')
+    vim.cmd('highlight CursorLine guibg=#f2e6d9')
+    vim.cmd('highlight NvimTreeCursorLine guibg=#faf2e2')
 
     vim.cmd('highlight folded guibg=NONE')
     vim.cmd('highlight UfoFoldedEllipsis guibg=#96cccb')
