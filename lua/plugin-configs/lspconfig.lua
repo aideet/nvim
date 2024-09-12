@@ -16,5 +16,9 @@ options.capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true
 }
 
+-- could move to mason.lua
+require'lspconfig'.marksman.setup{}
+require'lspconfig'.ruff.setup{}
+
 return options
 
