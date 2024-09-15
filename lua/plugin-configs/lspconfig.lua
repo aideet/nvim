@@ -19,6 +19,7 @@ options.capabilities.textDocument.foldingRange = {
 -- could move to mason.lua
 require'lspconfig'.marksman.setup{}
 require'lspconfig'.ruff.setup{}
+require'lspconfig'.pyright.setup{}
 
 return options
 
