@@ -62,7 +62,7 @@ map('n', 'zln', ':set nospell<CR>', { silent = true, noremap = true, desc = "Spe
 -- }}}
 
 -- un-highlight search occurrences {{{
-map('n', '<leader>H', '<Cmd>noh<CR>', { silent = true, noremap = true, desc = "Search highlight off" })
+map('n', '<leader>H', '<Cmd>set hlsearch!<CR>', { silent = true, noremap = true, desc = "Search highlight off" })
 -- }}}
 
 -- Hop {{{
