@@ -146,6 +146,13 @@ return {
         lazy = false,
     },
 -- }}}
+-- wintermute-cell/gitignore.nvim {{{
+    {"wintermute-cell/gitignore.nvim",
+    config = function()
+        require('gitignore')
+    end,
+    },
+-- }}}
 -- mfussenegger/nvim-lint {{{
     {
         "mfussenegger/nvim-lint",
