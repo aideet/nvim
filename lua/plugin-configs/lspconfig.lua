@@ -16,10 +16,37 @@ options.capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true
 }
 
--- could move to mason.lua
-require'lspconfig'.marksman.setup{}
-require'lspconfig'.ruff.setup{}
-require'lspconfig'.pyright.setup{}
+local lspconfig = require("lspconfig")
 
+-- could move to mason.lua
+
+lspconfig.yamlls.setup {
+  on_attach = options.on_attach,
+  capabilities = options.capabilities,
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml"] = "/openapi.yaml"
+        -- ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.yaml"] = "/openapi.yaml"
+      }
+    }
+  }
+}
+lspconfig.bashls.setup{}
+lspconfig.marksman.setup{}
+lspconfig.ruff.setup{}
+lspconfig.pyright.setup{}
+-- lspconfig.helm_ls.setup{}
+require'lspconfig'.helm_ls.setup {
+  on_attach = options.on_attach,
+  capabilities = options.capabilities,
+  settings = {
+    ['helm-ls'] = {
+      yamlls = {
+        path = "yaml-language-server",
+      }
+    }
+  }
+}
 return options
 

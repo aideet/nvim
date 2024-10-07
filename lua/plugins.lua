@@ -222,6 +222,7 @@ return {
         "neovim/nvim-lspconfig",
     },
 -- }}}
+ { 'towolf/vim-helm',       ft = 'helm' },
 -- lsp progress {{{
     {
       'linrongbin16/lsp-progress.nvim',

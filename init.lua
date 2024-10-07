@@ -23,7 +23,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-require('plugin-configs/lsp-yaml')
 require('mappings')
 require('styles')
 

@@ -280,9 +280,11 @@ set('n', '<C-7>', function()
 -- }}}
 
 -- Telescope {{{
-map('n', '<leader>ff', ':Telescope find_files<CR>', { silent = true, noremap = true, desc = "Find files"})
-map('n', '<leader>fa', ':Telescope find_files follow=true no_ignore=true hidden=true<CR>', { silent = true, noremap = true, desc = "Find hidden files"})
-map('n', '<leader>fw', ':Telescope live_grep<CR>', { silent = true, noremap = true, desc = "Grep"})
+-- map('n', '<leader>ff', ':Telescope find_files<CR>', { silent = true, noremap = true, desc = "Find files"})
+-- map('n', '<leader>fa', ':Telescope find_files follow=true no_ignore=true hidden=true<CR>', { silent = true, noremap = true, desc = "Find hidden files"})
+map('n', '<leader>ff', ':Telescope find_files follow=true no_ignore=true hidden=true<CR>', { silent = true, noremap = true, desc = "Find files"})
+-- map('n', '<leader>fw', ':Telescope live_grep<CR>', { silent = true, noremap = true, desc = "Grep"})
+map('n', '<leader>fw', ':Telescope live_grep follow=true no_ignore=true hidden=true<CR>', { silent = true, noremap = true, desc = "Grep"})
 map('n', '<leader>fb', ':Telescope buffers<CR>', { silent = true, noremap = true, desc = "Find buffer"})
 map('n', '<leader>fh', ':Telescope help_tags<CR>', { silent = true, noremap = true, desc = "Find help tags"})
 map('n', '<leader>fo', ':Telescope oldfiles<CR>', { silent = true, noremap = true, desc = "find old files"})
