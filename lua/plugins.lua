@@ -222,7 +222,12 @@ return {
         "neovim/nvim-lspconfig",
     },
 -- }}}
+-- towolf/vim-helm {{{
  { 'towolf/vim-helm',       ft = 'helm' },
+-- }}}
+-- jglasovic/venv-lsp {{{
+ { 'jglasovic/venv-lsp.nvim' },
+-- }}}
 -- lsp progress {{{
     {
       'linrongbin16/lsp-progress.nvim',

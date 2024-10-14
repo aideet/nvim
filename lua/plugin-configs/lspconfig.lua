@@ -1,3 +1,5 @@
+-- Activate venv before starting the LSP
+require('venv-lsp').init()
 
 local options = {
     inlay_hints = { enabled = true },   
@@ -34,7 +36,14 @@ lspconfig.yamlls.setup {
 }
 lspconfig.bashls.setup{}
 lspconfig.marksman.setup{}
-lspconfig.ruff.setup{}
+-- require('lspconfig').ruff.setup {
+--   trace = 'messages',
+--   init_options = {
+--     settings = {
+--       logLevel = 'debug',
+--     }
+--   }
+-- }
 lspconfig.pyright.setup{}
 -- lspconfig.helm_ls.setup{}
 require'lspconfig'.helm_ls.setup {
