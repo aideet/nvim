@@ -5,7 +5,11 @@
 --   vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * (1 + delta)
 -- end
 
--- 
+
+-- see https://github.com/kevinhwang91/nvim-ufo/issues/57
+vim.cmd("au BufEnter * silent! setlocal foldlevelstart=99")
+
+ 
 function show_documentation()
     local filetype = vim.bo.filetype
     if vim.tbl_contains({ 'vim','help' }, filetype) then

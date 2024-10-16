@@ -26,8 +26,9 @@ require("lazy").setup("plugins")
 require('mappings')
 require('styles')
 
--- see https://github.com/kevinhwang91/nvim-ufo/issues/57
-vim.cmd("au BufEnter * silent! setlocal foldlevelstart=99")
 
--- set_light_theme()
-set_dark_theme()
+if (os.getenv("DARKMODE")) == "true" then
+    set_dark_theme()
+else
+    set_light_theme()
+end
