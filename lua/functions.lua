@@ -9,7 +9,22 @@
 -- see https://github.com/kevinhwang91/nvim-ufo/issues/57
 vim.cmd("au BufEnter * silent! setlocal foldlevelstart=99")
 
- 
+
+-- Checks if the desktop runs in darkmode.
+-- This function can be used to set a color scheme respecting the current dark mode state.
+-- It expect that the dark mode is set by a desktop darkmode switcher.
+-- returns the first line of the file at $XDG_CONFIG_HOME/darkmode or nil if the file does not exists.
+function darkmode()
+    local cf = os.getenv("XDG_CONFIG_HOME")
+    if cf == nil then return nil end
+    local fn = cf .. "/darkmode"
+    local f = io.open(fn, "r")
+    if f == nil then return nil end
+    local dm = f:read("*line")
+    f:close()
+    return dm
+end
+
 function show_documentation()
     local filetype = vim.bo.filetype
     if vim.tbl_contains({ 'vim','help' }, filetype) then
