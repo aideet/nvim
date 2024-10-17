@@ -29,9 +29,7 @@ require('styles')
 
 local dm = darkmode()
 if dm == "true" then
-    print("set dark")
     set_dark_theme()
 else
-    print("set light")
     set_light_theme()
 end
