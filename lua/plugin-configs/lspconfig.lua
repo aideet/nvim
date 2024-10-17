@@ -36,15 +36,31 @@ lspconfig.yamlls.setup {
 }
 lspconfig.bashls.setup{}
 lspconfig.marksman.setup{}
--- require('lspconfig').ruff.setup {
---   trace = 'messages',
---   init_options = {
---     settings = {
---       logLevel = 'debug',
---     }
---   }
--- }
-lspconfig.pyright.setup{}
+lspconfig.ruff.setup{}
+vim.api.nvim_create_autocmd(
+  { "BufWritePre" },
+  { 
+    pattern = "*.py", 
+    callback = function(ev)
+        vim.lsp.buf.format { async = false }
+    end
+  }
+)
+
+lspconfig.pyright.setup{
+    settings = {
+        pyright = {
+          -- Using Ruff's import organizer
+          disableOrganizeImports = true,
+        },
+        python = {
+          analysis = {
+            -- Ignore all files for analysis to exclusively use Ruff for linting
+            ignore = { '*' },
+          },
+        },
+    },
+}
 -- lspconfig.helm_ls.setup{}
 require'lspconfig'.helm_ls.setup {
   on_attach = options.on_attach,
